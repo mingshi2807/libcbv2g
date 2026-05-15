@@ -50,6 +50,7 @@ extern "C" {
 #define iso20_ac_MgmtData_CHARACTER_SIZE (EXI_STRING_MAX_LEN + ASCII_EXTRA_CHAR)
 #define iso20_ac_Encoding_CHARACTER_SIZE (EXI_STRING_MAX_LEN + ASCII_EXTRA_CHAR)
 #define iso20_ac_MimeType_CHARACTER_SIZE (EXI_STRING_MAX_LEN + ASCII_EXTRA_CHAR)
+#define iso20_ac_DataTupleType_10_ARRAY_SIZE (10)
 #define iso20_ac_sessionIDType_BYTES_SIZE (8)
 #define iso20_ac_Target_CHARACTER_SIZE (EXI_STRING_MAX_LEN + ASCII_EXTRA_CHAR)
 #define iso20_ac_MeterID_CHARACTER_SIZE (32 + ASCII_EXTRA_CHAR)
@@ -74,34 +75,74 @@ typedef enum {
     iso20_ac_CLReqControlMode = 12,
     iso20_ac_CLResControlMode = 13,
     iso20_ac_CanonicalizationMethod = 14,
-    iso20_ac_DSAKeyValue = 15,
-    iso20_ac_DigestMethod = 16,
-    iso20_ac_DigestValue = 17,
-    iso20_ac_Dynamic_AC_CLReqControlMode = 18,
-    iso20_ac_Dynamic_AC_CLResControlMode = 19,
-    iso20_ac_KeyInfo = 20,
-    iso20_ac_KeyName = 21,
-    iso20_ac_KeyValue = 22,
-    iso20_ac_Manifest = 23,
-    iso20_ac_MgmtData = 24,
-    iso20_ac_Object = 25,
-    iso20_ac_PGPData = 26,
-    iso20_ac_RSAKeyValue = 27,
-    iso20_ac_Reference = 28,
-    iso20_ac_RetrievalMethod = 29,
-    iso20_ac_SPKIData = 30,
-    iso20_ac_Scheduled_AC_CLReqControlMode = 31,
-    iso20_ac_Scheduled_AC_CLResControlMode = 32,
-    iso20_ac_Signature = 33,
-    iso20_ac_SignatureMethod = 34,
-    iso20_ac_SignatureProperties = 35,
-    iso20_ac_SignatureProperty = 36,
-    iso20_ac_SignatureValue = 37,
-    iso20_ac_SignedInfo = 38,
-    iso20_ac_Transform = 39,
-    iso20_ac_Transforms = 40,
-    iso20_ac_X509Data = 41
+    iso20_ac_DER_AC_CPDReqEnergyTransferMode = 15,
+    iso20_ac_DER_AC_CPDResEnergyTransferMode = 16,
+    iso20_ac_DER_Dynamic_AC_CLReqControlMode = 17,
+    iso20_ac_DER_Dynamic_AC_CLResControlMode = 18,
+    iso20_ac_DER_Scheduled_AC_CLReqControlMode = 19,
+    iso20_ac_DER_Scheduled_AC_CLResControlMode = 20,
+    iso20_ac_DSAKeyValue = 21,
+    iso20_ac_DigestMethod = 22,
+    iso20_ac_DigestValue = 23,
+    iso20_ac_Dynamic_AC_CLReqControlMode = 24,
+    iso20_ac_Dynamic_AC_CLResControlMode = 25,
+    iso20_ac_KeyInfo = 26,
+    iso20_ac_KeyName = 27,
+    iso20_ac_KeyValue = 28,
+    iso20_ac_Manifest = 29,
+    iso20_ac_MgmtData = 30,
+    iso20_ac_Object = 31,
+    iso20_ac_PGPData = 32,
+    iso20_ac_RSAKeyValue = 33,
+    iso20_ac_Reference = 34,
+    iso20_ac_RetrievalMethod = 35,
+    iso20_ac_SPKIData = 36,
+    iso20_ac_Scheduled_AC_CLReqControlMode = 37,
+    iso20_ac_Scheduled_AC_CLResControlMode = 38,
+    iso20_ac_Signature = 39,
+    iso20_ac_SignatureMethod = 40,
+    iso20_ac_SignatureProperties = 41,
+    iso20_ac_SignatureProperty = 42,
+    iso20_ac_SignatureValue = 43,
+    iso20_ac_SignedInfo = 44,
+    iso20_ac_Transform = 45,
+    iso20_ac_Transforms = 46,
+    iso20_ac_X509Data = 47
 } iso20_ac_generatedFunctionNumbersType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}Excitation; type={urn:iso:std:iso:15118:-20:AC}powerFactorExcitationType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_powerFactorExcitationType_OverExcited = 0,
+    iso20_ac_powerFactorExcitationType_UnderExcited = 1
+} iso20_ac_powerFactorExcitationType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}xUnit; type={urn:iso:std:iso:15118:-20:AC}curveDataPointsUnitType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_curveDataPointsUnitType_V = 0,
+    iso20_ac_curveDataPointsUnitType_Hz = 1,
+    iso20_ac_curveDataPointsUnitType_W = 2,
+    iso20_ac_curveDataPointsUnitType_s = 3,
+    iso20_ac_curveDataPointsUnitType_var = 4
+} iso20_ac_curveDataPointsUnitType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}LockValueUnit; type={urn:iso:std:iso:15118:-20:AC}lockValueUnitType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_lockValueUnitType_V = 0,
+    iso20_ac_lockValueUnitType_Hz = 1,
+    iso20_ac_lockValueUnitType_W = 2,
+    iso20_ac_lockValueUnitType_s = 3,
+    iso20_ac_lockValueUnitType_var = 4
+} iso20_ac_lockValueUnitType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}PowerReference; type={urn:iso:std:iso:15118:-20:AC}powerReferenceType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_powerReferenceType_MaximumDischargePower = 0,
+    iso20_ac_powerReferenceType_MomentaryPower = 1
+} iso20_ac_powerReferenceType;
 
 // Element: definition=enum; name={urn:iso:std:iso:15118:-20:CommonTypes}EVSENotification; type={urn:iso:std:iso:15118:-20:CommonTypes}evseNotificationType; base type=string; content type=simple;
 //          abstract=False; final=False; derivation=restriction;
@@ -113,6 +154,28 @@ typedef enum {
     iso20_ac_evseNotificationType_ServiceRenegotiation = 4,
     iso20_ac_evseNotificationType_MeteringConfirmation = 5
 } iso20_ac_evseNotificationType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}EVProcessing; type={urn:iso:std:iso:15118:-20:CommonTypes}processingType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_processingType_Finished = 0,
+    iso20_ac_processingType_Ongoing = 1,
+    iso20_ac_processingType_Ongoing_WaitingForCustomerInteraction = 2
+} iso20_ac_processingType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}EVOperatingMode; type={urn:iso:std:iso:15118:-20:AC}evOperatingModeType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_evOperatingModeType_GridFollowing = 0,
+    iso20_ac_evOperatingModeType_GridForming = 1
+} iso20_ac_evOperatingModeType;
+
+// Element: definition=enum; name={urn:iso:std:iso:15118:-20:AC}GridConnectionMode; type={urn:iso:std:iso:15118:-20:AC}gridConnectionModeType; base type=string; content type=simple;
+//          abstract=False; final=False; derivation=restriction;
+typedef enum {
+    iso20_ac_gridConnectionModeType_GridConnected = 0,
+    iso20_ac_gridConnectionModeType_GridIslanded = 1
+} iso20_ac_gridConnectionModeType;
 
 // Element: definition=enum; name={urn:iso:std:iso:15118:-20:CommonTypes}ResponseCode; type={urn:iso:std:iso:15118:-20:CommonTypes}responseCodeType; base type=string; content type=simple;
 //          abstract=False; final=False; derivation=restriction;
@@ -667,6 +730,213 @@ struct iso20_ac_RationalNumberType {
 
 };
 
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}yValue; type={urn:iso:std:iso:15118:-20:AC}SetpointExcitationType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: SetpointValue, RationalNumberType (1, 1); Excitation, powerFactorExcitationType (0, 1);
+struct iso20_ac_SetpointExcitationType {
+    // SetpointValue, RationalNumberType
+    struct iso20_ac_RationalNumberType SetpointValue;
+    // Excitation, powerFactorExcitationType (base: string)
+    iso20_ac_powerFactorExcitationType Excitation;
+    unsigned int Excitation_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}CurveDataPoint; type={urn:iso:std:iso:15118:-20:AC}DataTupleType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: xValue, RationalNumberType (1, 1); yValue, SetpointExcitationType (1, 1);
+struct iso20_ac_DataTupleType {
+    // xValue, RationalNumberType
+    struct iso20_ac_RationalNumberType xValue;
+    // yValue, SetpointExcitationType
+    struct iso20_ac_SetpointExcitationType yValue;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}CurveDataPoints; type={urn:iso:std:iso:15118:-20:AC}CurveDataPointsListType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: CurveDataPoint, DataTupleType (2, 10);
+struct iso20_ac_CurveDataPointsListType {
+    // CurveDataPoint, DataTupleType
+    struct {
+        struct iso20_ac_DataTupleType array[iso20_ac_DataTupleType_10_ARRAY_SIZE];
+        uint16_t arrayLen;
+    } CurveDataPoint;
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}VoltVar; type={urn:iso:std:iso:15118:-20:AC}DERCurveType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: xUnit, curveDataPointsUnitType (1, 1); yUnit, curveDataPointsUnitType (1, 1); CurveDataPoints, CurveDataPointsListType (1, 1); MinCosPhi, RationalNumberType (0, 1); LockValueUnit, lockValueUnitType (0, 1); LockInValue, RationalNumberType (0, 1); LockOutValue, RationalNumberType (0, 1); PT1ResponseReactivePower, boolean (1, 1); StepResponseTimeConstantReactivePower, RationalNumberType (1, 1); IntentionalDelay, RationalNumberType (0, 1);
+struct iso20_ac_DERCurveType {
+    // xUnit, curveDataPointsUnitType (base: string)
+    iso20_ac_curveDataPointsUnitType xUnit;
+    // yUnit, curveDataPointsUnitType (base: string)
+    iso20_ac_curveDataPointsUnitType yUnit;
+    // CurveDataPoints, CurveDataPointsListType
+    struct iso20_ac_CurveDataPointsListType CurveDataPoints;
+    // MinCosPhi, RationalNumberType
+    struct iso20_ac_RationalNumberType MinCosPhi;
+    unsigned int MinCosPhi_isUsed:1;
+    // LockValueUnit, lockValueUnitType (base: string)
+    iso20_ac_lockValueUnitType LockValueUnit;
+    unsigned int LockValueUnit_isUsed:1;
+    // LockInValue, RationalNumberType
+    struct iso20_ac_RationalNumberType LockInValue;
+    unsigned int LockInValue_isUsed:1;
+    // LockOutValue, RationalNumberType
+    struct iso20_ac_RationalNumberType LockOutValue;
+    unsigned int LockOutValue_isUsed:1;
+    // PT1ResponseReactivePower, boolean
+    int PT1ResponseReactivePower;
+    // StepResponseTimeConstantReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantReactivePower;
+    // IntentionalDelay, RationalNumberType
+    struct iso20_ac_RationalNumberType IntentionalDelay;
+    unsigned int IntentionalDelay_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}UnderFrequencyWatt; type={urn:iso:std:iso:15118:-20:AC}FrequencyWattType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: Fstart, RationalNumberType (1, 1); Fstop, RationalNumberType (1, 1); IntentionalDelayFstop, unsignedShort (0, 1); Slope, RationalNumberType (1, 1); DeactivationTime, unsignedShort (0, 1); IntentionalDelayPowerControl, unsignedShort (0, 1); PowerReference, powerReferenceType (1, 1); HysteresisControl, boolean (1, 1); PowerUpRamp, unsignedShort (0, 1); PT1ResponseActivePower, boolean (1, 1); StepResponseTimeConstantActivePower, RationalNumberType (1, 1);
+struct iso20_ac_FrequencyWattType {
+    // Fstart, RationalNumberType
+    struct iso20_ac_RationalNumberType Fstart;
+    // Fstop, RationalNumberType
+    struct iso20_ac_RationalNumberType Fstop;
+    // IntentionalDelayFstop, unsignedShort (base: unsignedInt)
+    uint16_t IntentionalDelayFstop;
+    unsigned int IntentionalDelayFstop_isUsed:1;
+    // Slope, RationalNumberType
+    struct iso20_ac_RationalNumberType Slope;
+    // DeactivationTime, unsignedShort (base: unsignedInt)
+    uint16_t DeactivationTime;
+    unsigned int DeactivationTime_isUsed:1;
+    // IntentionalDelayPowerControl, unsignedShort (base: unsignedInt)
+    uint16_t IntentionalDelayPowerControl;
+    unsigned int IntentionalDelayPowerControl_isUsed:1;
+    // PowerReference, powerReferenceType (base: string)
+    iso20_ac_powerReferenceType PowerReference;
+    // HysteresisControl, boolean
+    int HysteresisControl;
+    // PowerUpRamp, unsignedShort (base: unsignedInt)
+    uint16_t PowerUpRamp;
+    unsigned int PowerUpRamp_isUsed:1;
+    // PT1ResponseActivePower, boolean
+    int PT1ResponseActivePower;
+    // StepResponseTimeConstantActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantActivePower;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}VoltWatt; type={urn:iso:std:iso:15118:-20:AC}VoltWattType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: PowerReference, powerReferenceType (1, 1); UStart, RationalNumberType (1, 1); UStop, RationalNumberType (1, 1); PT1ResponseActivePower, boolean (1, 1); StepResponseTimeConstantActivePower, RationalNumberType (1, 1); IntentionalDelayPowerControl, unsignedInt (0, 1);
+struct iso20_ac_VoltWattType {
+    // PowerReference, powerReferenceType (base: string)
+    iso20_ac_powerReferenceType PowerReference;
+    // UStart, RationalNumberType
+    struct iso20_ac_RationalNumberType UStart;
+    // UStop, RationalNumberType
+    struct iso20_ac_RationalNumberType UStop;
+    // PT1ResponseActivePower, boolean
+    int PT1ResponseActivePower;
+    // StepResponseTimeConstantActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantActivePower;
+    // IntentionalDelayPowerControl, unsignedInt (base: unsignedLong)
+    uint32_t IntentionalDelayPowerControl;
+    unsigned int IntentionalDelayPowerControl_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}OvervoltageFaultRideThrough; type={urn:iso:std:iso:15118:-20:AC}FaultRideThroughType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: VoltageLimitStartFRT, RationalNumberType (1, 1); VoltageLimitStopFRT, RationalNumberType (0, 1); VoltageRecoveryLimit, RationalNumberType (0, 1); VoltageRideThroughPositiveCurveKFactor, RationalNumberType (0, 1); VoltageRideThroughNegativeCurveKFactor, RationalNumberType (0, 1); PT1ResponseActivePower, boolean (1, 1); StepResponseTimeConstantActivePower, RationalNumberType (1, 1); PT1ResponseReactivePower, boolean (1, 1); StepResponseTimeConstantReactivePower, RationalNumberType (1, 1);
+struct iso20_ac_FaultRideThroughType {
+    // VoltageLimitStartFRT, RationalNumberType
+    struct iso20_ac_RationalNumberType VoltageLimitStartFRT;
+    // VoltageLimitStopFRT, RationalNumberType
+    struct iso20_ac_RationalNumberType VoltageLimitStopFRT;
+    unsigned int VoltageLimitStopFRT_isUsed:1;
+    // VoltageRecoveryLimit, RationalNumberType
+    struct iso20_ac_RationalNumberType VoltageRecoveryLimit;
+    unsigned int VoltageRecoveryLimit_isUsed:1;
+    // VoltageRideThroughPositiveCurveKFactor, RationalNumberType
+    struct iso20_ac_RationalNumberType VoltageRideThroughPositiveCurveKFactor;
+    unsigned int VoltageRideThroughPositiveCurveKFactor_isUsed:1;
+    // VoltageRideThroughNegativeCurveKFactor, RationalNumberType
+    struct iso20_ac_RationalNumberType VoltageRideThroughNegativeCurveKFactor;
+    unsigned int VoltageRideThroughNegativeCurveKFactor_isUsed:1;
+    // PT1ResponseActivePower, boolean
+    int PT1ResponseActivePower;
+    // StepResponseTimeConstantActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantActivePower;
+    // PT1ResponseReactivePower, boolean
+    int PT1ResponseReactivePower;
+    // StepResponseTimeConstantReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantReactivePower;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}ZeroCurrent; type={urn:iso:std:iso:15118:-20:AC}ZeroCurrentType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: OverVoltageLimit, RationalNumberType (0, 1); UnderVoltageLimit, RationalNumberType (0, 1); OverVoltageRecoveryLimit, RationalNumberType (0, 1); UnderVoltageRecoveryLimit, RationalNumberType (0, 1); PT1ResponseActivePower, boolean (1, 1); StepResponseTimeConstantActivePower, RationalNumberType (1, 1); PT1ResponseReactivePower, boolean (1, 1); StepResponseTimeConstantReactivePower, RationalNumberType (1, 1);
+struct iso20_ac_ZeroCurrentType {
+    // OverVoltageLimit, RationalNumberType
+    struct iso20_ac_RationalNumberType OverVoltageLimit;
+    unsigned int OverVoltageLimit_isUsed:1;
+    // UnderVoltageLimit, RationalNumberType
+    struct iso20_ac_RationalNumberType UnderVoltageLimit;
+    unsigned int UnderVoltageLimit_isUsed:1;
+    // OverVoltageRecoveryLimit, RationalNumberType
+    struct iso20_ac_RationalNumberType OverVoltageRecoveryLimit;
+    unsigned int OverVoltageRecoveryLimit_isUsed:1;
+    // UnderVoltageRecoveryLimit, RationalNumberType
+    struct iso20_ac_RationalNumberType UnderVoltageRecoveryLimit;
+    unsigned int UnderVoltageRecoveryLimit_isUsed:1;
+    // PT1ResponseActivePower, boolean
+    int PT1ResponseActivePower;
+    // StepResponseTimeConstantActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantActivePower;
+    // PT1ResponseReactivePower, boolean
+    int PT1ResponseReactivePower;
+    // StepResponseTimeConstantReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantReactivePower;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}ReactivePowerSupport; type={urn:iso:std:iso:15118:-20:AC}ReactivePowerSupportType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: VoltVar, DERCurveType (0, 1); WattVar, DERCurveType (0, 1); WattCosPhi, DERCurveType (0, 1);
+struct iso20_ac_ReactivePowerSupportType {
+    // VoltVar, DERCurveType
+    struct iso20_ac_DERCurveType VoltVar;
+    unsigned int VoltVar_isUsed:1;
+    // WattVar, DERCurveType
+    struct iso20_ac_DERCurveType WattVar;
+    unsigned int WattVar_isUsed:1;
+    // WattCosPhi, DERCurveType
+    struct iso20_ac_DERCurveType WattCosPhi;
+    unsigned int WattCosPhi_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}ActivePowerSupport; type={urn:iso:std:iso:15118:-20:AC}ActivePowerSupportType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: UnderFrequencyWatt, FrequencyWattType (0, 1); OverFrequencyWatt, FrequencyWattType (0, 1); VoltWatt, VoltWattType (0, 1);
+struct iso20_ac_ActivePowerSupportType {
+    // UnderFrequencyWatt, FrequencyWattType
+    struct iso20_ac_FrequencyWattType UnderFrequencyWatt;
+    unsigned int UnderFrequencyWatt_isUsed:1;
+    // OverFrequencyWatt, FrequencyWattType
+    struct iso20_ac_FrequencyWattType OverFrequencyWatt;
+    unsigned int OverFrequencyWatt_isUsed:1;
+    // VoltWatt, VoltWattType
+    struct iso20_ac_VoltWattType VoltWatt;
+    unsigned int VoltWatt_isUsed:1;
+
+};
+
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:CommonTypes}EnergyCosts; type={urn:iso:std:iso:15118:-20:CommonTypes}DetailedCostType; base type=; content type=ELEMENT-ONLY;
 //          abstract=False; final=False;
 // Particle: Amount, RationalNumberType (1, 1); CostPerUnit, RationalNumberType (1, 1);
@@ -709,6 +979,112 @@ struct iso20_ac_DetailedTaxType {
     uint32_t TaxRuleID;
     // Amount, RationalNumberType
     struct iso20_ac_RationalNumberType Amount;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}EVReactivePowerLimits; type={urn:iso:std:iso:15118:-20:AC}EVReactivePowerLimitsType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: EVMaximumChargeReactivePower, RationalNumberType (1, 1); EVMaximumChargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumChargeReactivePower_L3, RationalNumberType (0, 1); EVMinimumChargeReactivePower, RationalNumberType (0, 1); EVMinimumChargeReactivePower_L2, RationalNumberType (0, 1); EVMinimumChargeReactivePower_L3, RationalNumberType (0, 1); EVMaximumDischargeReactivePower, RationalNumberType (1, 1); EVMaximumDischargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumDischargeReactivePower_L3, RationalNumberType (0, 1); EVMinimumDischargeReactivePower, RationalNumberType (0, 1); EVMinimumDischargeReactivePower_L2, RationalNumberType (0, 1); EVMinimumDischargeReactivePower_L3, RationalNumberType (0, 1);
+struct iso20_ac_EVReactivePowerLimitsType {
+    // EVMaximumChargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower;
+    // EVMaximumChargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L2;
+    unsigned int EVMaximumChargeReactivePower_L2_isUsed:1;
+    // EVMaximumChargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L3;
+    unsigned int EVMaximumChargeReactivePower_L3_isUsed:1;
+    // EVMinimumChargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargeReactivePower;
+    unsigned int EVMinimumChargeReactivePower_isUsed:1;
+    // EVMinimumChargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargeReactivePower_L2;
+    unsigned int EVMinimumChargeReactivePower_L2_isUsed:1;
+    // EVMinimumChargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargeReactivePower_L3;
+    unsigned int EVMinimumChargeReactivePower_L3_isUsed:1;
+    // EVMaximumDischargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower;
+    // EVMaximumDischargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L2;
+    unsigned int EVMaximumDischargeReactivePower_L2_isUsed:1;
+    // EVMaximumDischargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L3;
+    unsigned int EVMaximumDischargeReactivePower_L3_isUsed:1;
+    // EVMinimumDischargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargeReactivePower;
+    unsigned int EVMinimumDischargeReactivePower_isUsed:1;
+    // EVMinimumDischargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargeReactivePower_L2;
+    unsigned int EVMinimumDischargeReactivePower_L2_isUsed:1;
+    // EVMinimumDischargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargeReactivePower_L3;
+    unsigned int EVMinimumDischargeReactivePower_L3_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DSOQSetpoint; type={urn:iso:std:iso:15118:-20:AC}DSOQSetpointType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: DSOQSetpointValue, RationalNumberType (1, 1); DSOQSetpointValue_L2, RationalNumberType (0, 1); DSOQSetpointValue_L3, RationalNumberType (0, 1); PT1ResponseReactivePower, boolean (1, 1); StepResponseTimeConstantReactivePower, RationalNumberType (1, 1);
+struct iso20_ac_DSOQSetpointType {
+    // DSOQSetpointValue, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOQSetpointValue;
+    // DSOQSetpointValue_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOQSetpointValue_L2;
+    unsigned int DSOQSetpointValue_L2_isUsed:1;
+    // DSOQSetpointValue_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOQSetpointValue_L3;
+    unsigned int DSOQSetpointValue_L3_isUsed:1;
+    // PT1ResponseReactivePower, boolean
+    int PT1ResponseReactivePower;
+    // StepResponseTimeConstantReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantReactivePower;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DERControl; type={urn:iso:std:iso:15118:-20:AC}DERControlType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: OvervoltageFaultRideThrough, FaultRideThroughType (0, 1); UndervoltageFaultRideThrough, FaultRideThroughType (0, 1); ZeroCurrent, ZeroCurrentType (0, 1); ReactivePowerSupport, ReactivePowerSupportType (0, 1); ActivePowerSupport, ActivePowerSupportType (0, 1); MaximumLevelDCInjection, RationalNumberType (0, 1);
+struct iso20_ac_DERControlType {
+    // OvervoltageFaultRideThrough, FaultRideThroughType
+    struct iso20_ac_FaultRideThroughType OvervoltageFaultRideThrough;
+    unsigned int OvervoltageFaultRideThrough_isUsed:1;
+    // UndervoltageFaultRideThrough, FaultRideThroughType
+    struct iso20_ac_FaultRideThroughType UndervoltageFaultRideThrough;
+    unsigned int UndervoltageFaultRideThrough_isUsed:1;
+    // ZeroCurrent, ZeroCurrentType
+    struct iso20_ac_ZeroCurrentType ZeroCurrent;
+    unsigned int ZeroCurrent_isUsed:1;
+    // ReactivePowerSupport, ReactivePowerSupportType
+    struct iso20_ac_ReactivePowerSupportType ReactivePowerSupport;
+    unsigned int ReactivePowerSupport_isUsed:1;
+    // ActivePowerSupport, ActivePowerSupportType
+    struct iso20_ac_ActivePowerSupportType ActivePowerSupport;
+    unsigned int ActivePowerSupport_isUsed:1;
+    // MaximumLevelDCInjection, RationalNumberType
+    struct iso20_ac_RationalNumberType MaximumLevelDCInjection;
+    unsigned int MaximumLevelDCInjection_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DSOCosPhiSetpoint; type={urn:iso:std:iso:15118:-20:AC}DSOCosPhiSetpointType; base type=; content type=ELEMENT-ONLY;
+//          abstract=False; final=False;
+// Particle: DSOCosPhiSetpointValue, RationalNumberType (1, 1); DSOCosPhiSetpointValue_L2, RationalNumberType (0, 1); DSOCosPhiSetpointValue_L3, RationalNumberType (0, 1); Excitation, powerFactorExcitationType (1, 1); PT1ResponseReactivePower, boolean (1, 1); StepResponseTimeConstantReactivePower, RationalNumberType (1, 1);
+struct iso20_ac_DSOCosPhiSetpointType {
+    // DSOCosPhiSetpointValue, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOCosPhiSetpointValue;
+    // DSOCosPhiSetpointValue_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOCosPhiSetpointValue_L2;
+    unsigned int DSOCosPhiSetpointValue_L2_isUsed:1;
+    // DSOCosPhiSetpointValue_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOCosPhiSetpointValue_L3;
+    unsigned int DSOCosPhiSetpointValue_L3_isUsed:1;
+    // Excitation, powerFactorExcitationType (base: string)
+    iso20_ac_powerFactorExcitationType Excitation;
+    // PT1ResponseReactivePower, boolean
+    int PT1ResponseReactivePower;
+    // StepResponseTimeConstantReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType StepResponseTimeConstantReactivePower;
 
 };
 
@@ -815,6 +1191,45 @@ struct iso20_ac_DisplayParametersType {
 
 };
 
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDReqEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDReqEnergyTransferModeType; base type=AC_CPDReqEnergyTransferModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVMaximumChargePower, RationalNumberType (1, 1); EVMaximumChargePower_L2, RationalNumberType (0, 1); EVMaximumChargePower_L3, RationalNumberType (0, 1); EVMinimumChargePower, RationalNumberType (1, 1); EVMinimumChargePower_L2, RationalNumberType (0, 1); EVMinimumChargePower_L3, RationalNumberType (0, 1); EVMaximumDischargePower, RationalNumberType (1, 1); EVMaximumDischargePower_L2, RationalNumberType (0, 1); EVMaximumDischargePower_L3, RationalNumberType (0, 1); EVMinimumDischargePower, RationalNumberType (1, 1); EVMinimumDischargePower_L2, RationalNumberType (0, 1); EVMinimumDischargePower_L3, RationalNumberType (0, 1);
+struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType {
+    // EVMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower;
+    // EVMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L2;
+    unsigned int EVMaximumChargePower_L2_isUsed:1;
+    // EVMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L3;
+    unsigned int EVMaximumChargePower_L3_isUsed:1;
+    // EVMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower;
+    // EVMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L2;
+    unsigned int EVMinimumChargePower_L2_isUsed:1;
+    // EVMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L3;
+    unsigned int EVMinimumChargePower_L3_isUsed:1;
+    // EVMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower;
+    // EVMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L2;
+    unsigned int EVMaximumDischargePower_L2_isUsed:1;
+    // EVMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L3;
+    unsigned int EVMaximumDischargePower_L3_isUsed:1;
+    // EVMinimumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower;
+    // EVMinimumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L2;
+    unsigned int EVMinimumDischargePower_L2_isUsed:1;
+    // EVMinimumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L3;
+    unsigned int EVMinimumDischargePower_L3_isUsed:1;
+
+};
+
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}AC_CPDResEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}AC_CPDResEnergyTransferModeType; base type=; content type=ELEMENT-ONLY;
 //          abstract=False; final=False;
 // Particle: EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMinimumChargePower, RationalNumberType (1, 1); EVSEMinimumChargePower_L2, RationalNumberType (0, 1); EVSEMinimumChargePower_L3, RationalNumberType (0, 1); EVSENominalFrequency, RationalNumberType (1, 1); MaximumPowerAsymmetry, RationalNumberType (0, 1); EVSEPowerRampLimitation, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1);
@@ -863,6 +1278,289 @@ struct iso20_ac_EVSEStatusType {
     uint16_t NotificationMaxDelay;
     // EVSENotification, evseNotificationType (base: string)
     iso20_ac_evseNotificationType EVSENotification;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_AC_CPDReqEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}DER_AC_CPDReqEnergyTransferModeType; base type=AC_CPDReqEnergyTransferModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVMaximumChargePower, RationalNumberType (1, 1); EVMaximumChargePower_L2, RationalNumberType (0, 1); EVMaximumChargePower_L3, RationalNumberType (0, 1); EVMinimumChargePower, RationalNumberType (1, 1); EVMinimumChargePower_L2, RationalNumberType (0, 1); EVMinimumChargePower_L3, RationalNumberType (0, 1); EVProcessing, processingType (1, 1); EVMaximumDischargePower, RationalNumberType (1, 1); EVMaximumDischargePower_L2, RationalNumberType (0, 1); EVMaximumDischargePower_L3, RationalNumberType (0, 1); EVMinimumDischargePower, RationalNumberType (1, 1); EVMinimumDischargePower_L2, RationalNumberType (0, 1); EVMinimumDischargePower_L3, RationalNumberType (0, 1); EVSessionTotalDischargeEnergyAvailable, RationalNumberType (0, 1); EVReactivePowerLimits, EVReactivePowerLimitsType (0, 1);
+struct iso20_ac_DER_AC_CPDReqEnergyTransferModeType {
+    // EVMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower;
+    // EVMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L2;
+    unsigned int EVMaximumChargePower_L2_isUsed:1;
+    // EVMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L3;
+    unsigned int EVMaximumChargePower_L3_isUsed:1;
+    // EVMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower;
+    // EVMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L2;
+    unsigned int EVMinimumChargePower_L2_isUsed:1;
+    // EVMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L3;
+    unsigned int EVMinimumChargePower_L3_isUsed:1;
+    // EVProcessing, processingType (base: string)
+    iso20_ac_processingType EVProcessing;
+    // EVMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower;
+    // EVMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L2;
+    unsigned int EVMaximumDischargePower_L2_isUsed:1;
+    // EVMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L3;
+    unsigned int EVMaximumDischargePower_L3_isUsed:1;
+    // EVMinimumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower;
+    // EVMinimumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L2;
+    unsigned int EVMinimumDischargePower_L2_isUsed:1;
+    // EVMinimumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L3;
+    unsigned int EVMinimumDischargePower_L3_isUsed:1;
+    // EVSessionTotalDischargeEnergyAvailable, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSessionTotalDischargeEnergyAvailable;
+    unsigned int EVSessionTotalDischargeEnergyAvailable_isUsed:1;
+    // EVReactivePowerLimits, EVReactivePowerLimitsType
+    struct iso20_ac_EVReactivePowerLimitsType EVReactivePowerLimits;
+    unsigned int EVReactivePowerLimits_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDResEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDResEnergyTransferModeType; base type=AC_CPDResEnergyTransferModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMinimumChargePower, RationalNumberType (1, 1); EVSEMinimumChargePower_L2, RationalNumberType (0, 1); EVSEMinimumChargePower_L3, RationalNumberType (0, 1); EVSENominalFrequency, RationalNumberType (1, 1); MaximumPowerAsymmetry, RationalNumberType (0, 1); EVSEPowerRampLimitation, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1); EVSEMaximumDischargePower, RationalNumberType (1, 1); EVSEMaximumDischargePower_L2, RationalNumberType (0, 1); EVSEMaximumDischargePower_L3, RationalNumberType (0, 1); EVSEMinimumDischargePower, RationalNumberType (1, 1); EVSEMinimumDischargePower_L2, RationalNumberType (0, 1); EVSEMinimumDischargePower_L3, RationalNumberType (0, 1);
+struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType {
+    // EVSEMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower;
+    // EVSEMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L2;
+    unsigned int EVSEMaximumChargePower_L2_isUsed:1;
+    // EVSEMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L3;
+    unsigned int EVSEMaximumChargePower_L3_isUsed:1;
+    // EVSEMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower;
+    // EVSEMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L2;
+    unsigned int EVSEMinimumChargePower_L2_isUsed:1;
+    // EVSEMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L3;
+    unsigned int EVSEMinimumChargePower_L3_isUsed:1;
+    // EVSENominalFrequency, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalFrequency;
+    // MaximumPowerAsymmetry, RationalNumberType
+    struct iso20_ac_RationalNumberType MaximumPowerAsymmetry;
+    unsigned int MaximumPowerAsymmetry_isUsed:1;
+    // EVSEPowerRampLimitation, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPowerRampLimitation;
+    unsigned int EVSEPowerRampLimitation_isUsed:1;
+    // EVSEPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower;
+    unsigned int EVSEPresentActivePower_isUsed:1;
+    // EVSEPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L2;
+    unsigned int EVSEPresentActivePower_L2_isUsed:1;
+    // EVSEPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L3;
+    unsigned int EVSEPresentActivePower_L3_isUsed:1;
+    // EVSEMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower;
+    // EVSEMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L2;
+    unsigned int EVSEMaximumDischargePower_L2_isUsed:1;
+    // EVSEMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L3;
+    unsigned int EVSEMaximumDischargePower_L3_isUsed:1;
+    // EVSEMinimumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower;
+    // EVSEMinimumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower_L2;
+    unsigned int EVSEMinimumDischargePower_L2_isUsed:1;
+    // EVSEMinimumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower_L3;
+    unsigned int EVSEMinimumDischargePower_L3_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_Scheduled_AC_CLReqControlMode; type={urn:iso:std:iso:15118:-20:AC}DER_Scheduled_AC_CLReqControlModeType; base type=Scheduled_AC_CLReqControlModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVTargetEnergyRequest, RationalNumberType (0, 1); EVMaximumEnergyRequest, RationalNumberType (0, 1); EVMinimumEnergyRequest, RationalNumberType (0, 1); EVMaximumChargePower, RationalNumberType (0, 1); EVMaximumChargePower_L2, RationalNumberType (0, 1); EVMaximumChargePower_L3, RationalNumberType (0, 1); EVMinimumChargePower, RationalNumberType (0, 1); EVMinimumChargePower_L2, RationalNumberType (0, 1); EVMinimumChargePower_L3, RationalNumberType (0, 1); EVPresentActivePower, RationalNumberType (1, 1); EVPresentActivePower_L2, RationalNumberType (0, 1); EVPresentActivePower_L3, RationalNumberType (0, 1); EVPresentReactivePower, RationalNumberType (0, 1); EVPresentReactivePower_L2, RationalNumberType (0, 1); EVPresentReactivePower_L3, RationalNumberType (0, 1); EVMaximumDischargePower, RationalNumberType (1, 1); EVMaximumDischargePower_L2, RationalNumberType (0, 1); EVMaximumDischargePower_L3, RationalNumberType (0, 1); EVMinimumDischargePower, RationalNumberType (1, 1); EVMinimumDischargePower_L2, RationalNumberType (0, 1); EVMinimumDischargePower_L3, RationalNumberType (0, 1); EVMaximumChargeReactivePower, RationalNumberType (0, 1); EVMaximumChargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumChargeReactivePower_L3, RationalNumberType (0, 1); EVMaximumDischargeReactivePower, RationalNumberType (0, 1); EVMaximumDischargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumDischargeReactivePower_L3, RationalNumberType (0, 1); GridEventCondition, unsignedByte (1, 1);
+struct iso20_ac_DER_Scheduled_AC_CLReqControlModeType {
+    // EVTargetEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVTargetEnergyRequest;
+    unsigned int EVTargetEnergyRequest_isUsed:1;
+    // EVMaximumEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumEnergyRequest;
+    unsigned int EVMaximumEnergyRequest_isUsed:1;
+    // EVMinimumEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumEnergyRequest;
+    unsigned int EVMinimumEnergyRequest_isUsed:1;
+    // EVMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower;
+    unsigned int EVMaximumChargePower_isUsed:1;
+    // EVMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L2;
+    unsigned int EVMaximumChargePower_L2_isUsed:1;
+    // EVMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L3;
+    unsigned int EVMaximumChargePower_L3_isUsed:1;
+    // EVMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower;
+    unsigned int EVMinimumChargePower_isUsed:1;
+    // EVMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L2;
+    unsigned int EVMinimumChargePower_L2_isUsed:1;
+    // EVMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L3;
+    unsigned int EVMinimumChargePower_L3_isUsed:1;
+    // EVPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower;
+    // EVPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower_L2;
+    unsigned int EVPresentActivePower_L2_isUsed:1;
+    // EVPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower_L3;
+    unsigned int EVPresentActivePower_L3_isUsed:1;
+    // EVPresentReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower;
+    unsigned int EVPresentReactivePower_isUsed:1;
+    // EVPresentReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower_L2;
+    unsigned int EVPresentReactivePower_L2_isUsed:1;
+    // EVPresentReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower_L3;
+    unsigned int EVPresentReactivePower_L3_isUsed:1;
+    // EVMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower;
+    // EVMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L2;
+    unsigned int EVMaximumDischargePower_L2_isUsed:1;
+    // EVMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L3;
+    unsigned int EVMaximumDischargePower_L3_isUsed:1;
+    // EVMinimumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower;
+    // EVMinimumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L2;
+    unsigned int EVMinimumDischargePower_L2_isUsed:1;
+    // EVMinimumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L3;
+    unsigned int EVMinimumDischargePower_L3_isUsed:1;
+    // EVMaximumChargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower;
+    unsigned int EVMaximumChargeReactivePower_isUsed:1;
+    // EVMaximumChargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L2;
+    unsigned int EVMaximumChargeReactivePower_L2_isUsed:1;
+    // EVMaximumChargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L3;
+    unsigned int EVMaximumChargeReactivePower_L3_isUsed:1;
+    // EVMaximumDischargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower;
+    unsigned int EVMaximumDischargeReactivePower_isUsed:1;
+    // EVMaximumDischargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L2;
+    unsigned int EVMaximumDischargeReactivePower_L2_isUsed:1;
+    // EVMaximumDischargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L3;
+    unsigned int EVMaximumDischargeReactivePower_L3_isUsed:1;
+    // GridEventCondition, unsignedByte (base: unsignedShort)
+    uint8_t GridEventCondition;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_Dynamic_AC_CLReqControlMode; type={urn:iso:std:iso:15118:-20:AC}DER_Dynamic_AC_CLReqControlModeType; base type=Dynamic_AC_CLReqControlModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: DepartureTime, unsignedInt (0, 1); EVTargetEnergyRequest, RationalNumberType (1, 1); EVMaximumEnergyRequest, RationalNumberType (1, 1); EVMinimumEnergyRequest, RationalNumberType (1, 1); EVMaximumChargePower, RationalNumberType (1, 1); EVMaximumChargePower_L2, RationalNumberType (0, 1); EVMaximumChargePower_L3, RationalNumberType (0, 1); EVMinimumChargePower, RationalNumberType (1, 1); EVMinimumChargePower_L2, RationalNumberType (0, 1); EVMinimumChargePower_L3, RationalNumberType (0, 1); EVPresentActivePower, RationalNumberType (1, 1); EVPresentActivePower_L2, RationalNumberType (0, 1); EVPresentActivePower_L3, RationalNumberType (0, 1); EVPresentReactivePower, RationalNumberType (1, 1); EVPresentReactivePower_L2, RationalNumberType (0, 1); EVPresentReactivePower_L3, RationalNumberType (0, 1); EVMaximumDischargePower, RationalNumberType (1, 1); EVMaximumDischargePower_L2, RationalNumberType (0, 1); EVMaximumDischargePower_L3, RationalNumberType (0, 1); EVMinimumDischargePower, RationalNumberType (1, 1); EVMinimumDischargePower_L2, RationalNumberType (0, 1); EVMinimumDischargePower_L3, RationalNumberType (0, 1); EVMaximumChargeReactivePower, RationalNumberType (0, 1); EVMaximumChargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumChargeReactivePower_L3, RationalNumberType (0, 1); EVMaximumDischargeReactivePower, RationalNumberType (0, 1); EVMaximumDischargeReactivePower_L2, RationalNumberType (0, 1); EVMaximumDischargeReactivePower_L3, RationalNumberType (0, 1); GridEventCondition, unsignedByte (1, 1); EVMaximumV2XEnergyRequest, RationalNumberType (0, 1); EVMinimumV2XEnergyRequest, RationalNumberType (0, 1); EVSessionTotalDischargeEnergyAvailable, RationalNumberType (0, 1);
+struct iso20_ac_DER_Dynamic_AC_CLReqControlModeType {
+    // DepartureTime, unsignedInt (base: unsignedLong)
+    uint32_t DepartureTime;
+    unsigned int DepartureTime_isUsed:1;
+    // EVTargetEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVTargetEnergyRequest;
+    // EVMaximumEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumEnergyRequest;
+    // EVMinimumEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumEnergyRequest;
+    // EVMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower;
+    // EVMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L2;
+    unsigned int EVMaximumChargePower_L2_isUsed:1;
+    // EVMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargePower_L3;
+    unsigned int EVMaximumChargePower_L3_isUsed:1;
+    // EVMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower;
+    // EVMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L2;
+    unsigned int EVMinimumChargePower_L2_isUsed:1;
+    // EVMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumChargePower_L3;
+    unsigned int EVMinimumChargePower_L3_isUsed:1;
+    // EVPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower;
+    // EVPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower_L2;
+    unsigned int EVPresentActivePower_L2_isUsed:1;
+    // EVPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentActivePower_L3;
+    unsigned int EVPresentActivePower_L3_isUsed:1;
+    // EVPresentReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower;
+    // EVPresentReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower_L2;
+    unsigned int EVPresentReactivePower_L2_isUsed:1;
+    // EVPresentReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVPresentReactivePower_L3;
+    unsigned int EVPresentReactivePower_L3_isUsed:1;
+    // EVMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower;
+    // EVMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L2;
+    unsigned int EVMaximumDischargePower_L2_isUsed:1;
+    // EVMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L3;
+    unsigned int EVMaximumDischargePower_L3_isUsed:1;
+    // EVMinimumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower;
+    // EVMinimumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L2;
+    unsigned int EVMinimumDischargePower_L2_isUsed:1;
+    // EVMinimumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L3;
+    unsigned int EVMinimumDischargePower_L3_isUsed:1;
+    // EVMaximumChargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower;
+    unsigned int EVMaximumChargeReactivePower_isUsed:1;
+    // EVMaximumChargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L2;
+    unsigned int EVMaximumChargeReactivePower_L2_isUsed:1;
+    // EVMaximumChargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumChargeReactivePower_L3;
+    unsigned int EVMaximumChargeReactivePower_L3_isUsed:1;
+    // EVMaximumDischargeReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower;
+    unsigned int EVMaximumDischargeReactivePower_isUsed:1;
+    // EVMaximumDischargeReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L2;
+    unsigned int EVMaximumDischargeReactivePower_L2_isUsed:1;
+    // EVMaximumDischargeReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumDischargeReactivePower_L3;
+    unsigned int EVMaximumDischargeReactivePower_L3_isUsed:1;
+    // GridEventCondition, unsignedByte (base: unsignedShort)
+    uint8_t GridEventCondition;
+    // EVMaximumV2XEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMaximumV2XEnergyRequest;
+    unsigned int EVMaximumV2XEnergyRequest_isUsed:1;
+    // EVMinimumV2XEnergyRequest, RationalNumberType
+    struct iso20_ac_RationalNumberType EVMinimumV2XEnergyRequest;
+    unsigned int EVMinimumV2XEnergyRequest_isUsed:1;
+    // EVSessionTotalDischargeEnergyAvailable, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSessionTotalDischargeEnergyAvailable;
+    unsigned int EVSessionTotalDischargeEnergyAvailable_isUsed:1;
 
 };
 
@@ -1008,6 +1706,76 @@ struct iso20_ac_MeterInfoType {
 
 };
 
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_AC_CPDResEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}DER_AC_CPDResEnergyTransferModeType; base type=AC_CPDResEnergyTransferModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMinimumChargePower, RationalNumberType (1, 1); EVSEMinimumChargePower_L2, RationalNumberType (0, 1); EVSEMinimumChargePower_L3, RationalNumberType (0, 1); EVSENominalFrequency, RationalNumberType (1, 1); MaximumPowerAsymmetry, RationalNumberType (0, 1); EVSEPowerRampLimitation, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1); EVSENominalChargePower, RationalNumberType (1, 1); EVSENominalChargePower_L2, RationalNumberType (0, 1); EVSENominalChargePower_L3, RationalNumberType (0, 1); EVSENominalDischargePower, RationalNumberType (1, 1); EVSENominalDischargePower_L2, RationalNumberType (0, 1); EVSENominalDischargePower_L3, RationalNumberType (0, 1); EVSEMaximumDischargePower, RationalNumberType (1, 1); EVSEMaximumDischargePower_L2, RationalNumberType (0, 1); EVSEMaximumDischargePower_L3, RationalNumberType (0, 1); EVOperatingMode, evOperatingModeType (1, 1); GridConnectionMode, gridConnectionModeType (1, 1); DERControl, DERControlType (1, 1);
+struct iso20_ac_DER_AC_CPDResEnergyTransferModeType {
+    // EVSEMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower;
+    // EVSEMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L2;
+    unsigned int EVSEMaximumChargePower_L2_isUsed:1;
+    // EVSEMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L3;
+    unsigned int EVSEMaximumChargePower_L3_isUsed:1;
+    // EVSEMinimumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower;
+    // EVSEMinimumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L2;
+    unsigned int EVSEMinimumChargePower_L2_isUsed:1;
+    // EVSEMinimumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L3;
+    unsigned int EVSEMinimumChargePower_L3_isUsed:1;
+    // EVSENominalFrequency, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalFrequency;
+    // MaximumPowerAsymmetry, RationalNumberType
+    struct iso20_ac_RationalNumberType MaximumPowerAsymmetry;
+    unsigned int MaximumPowerAsymmetry_isUsed:1;
+    // EVSEPowerRampLimitation, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPowerRampLimitation;
+    unsigned int EVSEPowerRampLimitation_isUsed:1;
+    // EVSEPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower;
+    unsigned int EVSEPresentActivePower_isUsed:1;
+    // EVSEPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L2;
+    unsigned int EVSEPresentActivePower_L2_isUsed:1;
+    // EVSEPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L3;
+    unsigned int EVSEPresentActivePower_L3_isUsed:1;
+    // EVSENominalChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalChargePower;
+    // EVSENominalChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalChargePower_L2;
+    unsigned int EVSENominalChargePower_L2_isUsed:1;
+    // EVSENominalChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalChargePower_L3;
+    unsigned int EVSENominalChargePower_L3_isUsed:1;
+    // EVSENominalDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalDischargePower;
+    // EVSENominalDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalDischargePower_L2;
+    unsigned int EVSENominalDischargePower_L2_isUsed:1;
+    // EVSENominalDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSENominalDischargePower_L3;
+    unsigned int EVSENominalDischargePower_L3_isUsed:1;
+    // EVSEMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower;
+    // EVSEMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L2;
+    unsigned int EVSEMaximumDischargePower_L2_isUsed:1;
+    // EVSEMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L3;
+    unsigned int EVSEMaximumDischargePower_L3_isUsed:1;
+    // EVOperatingMode, evOperatingModeType (base: string)
+    iso20_ac_evOperatingModeType EVOperatingMode;
+    // GridConnectionMode, gridConnectionModeType (base: string)
+    iso20_ac_gridConnectionModeType GridConnectionMode;
+    // DERControl, DERControlType
+    struct iso20_ac_DERControlType DERControl;
+
+};
+
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:CommonTypes}Receipt; type={urn:iso:std:iso:15118:-20:CommonTypes}ReceiptType; base type=; content type=ELEMENT-ONLY;
 //          abstract=False; final=False;
 // Particle: TimeAnchor, unsignedLong (1, 1); EnergyCosts, DetailedCostType (0, 1); OccupancyCosts, DetailedCostType (0, 1); AdditionalServicesCosts, DetailedCostType (0, 1); OverstayCosts, DetailedCostType (0, 1); TaxCosts, DetailedTaxType (0, 10);
@@ -1067,6 +1835,147 @@ struct iso20_ac_Scheduled_AC_CLResControlModeType {
 
 };
 
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_Dynamic_AC_CLResControlMode; type={urn:iso:std:iso:15118:-20:AC}DER_Dynamic_AC_CLResControlModeType; base type=Dynamic_AC_CLResControlModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: DepartureTime, unsignedInt (0, 1); MinimumSOC, percentValueType (0, 1); TargetSOC, percentValueType (0, 1); AckMaxDelay, unsignedShort (0, 1); EVSETargetActivePower, RationalNumberType (1, 1); EVSETargetActivePower_L2, RationalNumberType (0, 1); EVSETargetActivePower_L3, RationalNumberType (0, 1); EVSETargetReactivePower, RationalNumberType (0, 1); EVSETargetReactivePower_L2, RationalNumberType (0, 1); EVSETargetReactivePower_L3, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1); EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMaximumDischargePower, RationalNumberType (1, 1); EVSEMaximumDischargePower_L2, RationalNumberType (0, 1); EVSEMaximumDischargePower_L3, RationalNumberType (0, 1); DSOMaximumDischargePower, RationalNumberType (0, 1); DSOMaximumDischargePower_L2, RationalNumberType (0, 1); DSOMaximumDischargePower_L3, RationalNumberType (0, 1); DSOQSetpoint, DSOQSetpointType (0, 1); DSOCosPhiSetpoint, DSOCosPhiSetpointType (0, 1);
+struct iso20_ac_DER_Dynamic_AC_CLResControlModeType {
+    // DepartureTime, unsignedInt (base: unsignedLong)
+    uint32_t DepartureTime;
+    unsigned int DepartureTime_isUsed:1;
+    // MinimumSOC, percentValueType (base: byte)
+    int8_t MinimumSOC;
+    unsigned int MinimumSOC_isUsed:1;
+    // TargetSOC, percentValueType (base: byte)
+    int8_t TargetSOC;
+    unsigned int TargetSOC_isUsed:1;
+    // AckMaxDelay, unsignedShort (base: unsignedInt)
+    uint16_t AckMaxDelay;
+    unsigned int AckMaxDelay_isUsed:1;
+    // EVSETargetActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower;
+    // EVSETargetActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower_L2;
+    unsigned int EVSETargetActivePower_L2_isUsed:1;
+    // EVSETargetActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower_L3;
+    unsigned int EVSETargetActivePower_L3_isUsed:1;
+    // EVSETargetReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower;
+    unsigned int EVSETargetReactivePower_isUsed:1;
+    // EVSETargetReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower_L2;
+    unsigned int EVSETargetReactivePower_L2_isUsed:1;
+    // EVSETargetReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower_L3;
+    unsigned int EVSETargetReactivePower_L3_isUsed:1;
+    // EVSEPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower;
+    unsigned int EVSEPresentActivePower_isUsed:1;
+    // EVSEPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L2;
+    unsigned int EVSEPresentActivePower_L2_isUsed:1;
+    // EVSEPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L3;
+    unsigned int EVSEPresentActivePower_L3_isUsed:1;
+    // EVSEMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower;
+    // EVSEMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L2;
+    unsigned int EVSEMaximumChargePower_L2_isUsed:1;
+    // EVSEMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L3;
+    unsigned int EVSEMaximumChargePower_L3_isUsed:1;
+    // EVSEMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower;
+    // EVSEMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L2;
+    unsigned int EVSEMaximumDischargePower_L2_isUsed:1;
+    // EVSEMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L3;
+    unsigned int EVSEMaximumDischargePower_L3_isUsed:1;
+    // DSOMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower;
+    unsigned int DSOMaximumDischargePower_isUsed:1;
+    // DSOMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower_L2;
+    unsigned int DSOMaximumDischargePower_L2_isUsed:1;
+    // DSOMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower_L3;
+    unsigned int DSOMaximumDischargePower_L3_isUsed:1;
+    // DSOQSetpoint, DSOQSetpointType
+    struct iso20_ac_DSOQSetpointType DSOQSetpoint;
+    unsigned int DSOQSetpoint_isUsed:1;
+    // DSOCosPhiSetpoint, DSOCosPhiSetpointType
+    struct iso20_ac_DSOCosPhiSetpointType DSOCosPhiSetpoint;
+    unsigned int DSOCosPhiSetpoint_isUsed:1;
+
+};
+
+// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}DER_Scheduled_AC_CLResControlMode; type={urn:iso:std:iso:15118:-20:AC}DER_Scheduled_AC_CLResControlModeType; base type=Scheduled_AC_CLResControlModeType; content type=ELEMENT-ONLY;
+//          abstract=False; final=False; derivation=extension;
+// Particle: EVSETargetActivePower, RationalNumberType (0, 1); EVSETargetActivePower_L2, RationalNumberType (0, 1); EVSETargetActivePower_L3, RationalNumberType (0, 1); EVSETargetReactivePower, RationalNumberType (0, 1); EVSETargetReactivePower_L2, RationalNumberType (0, 1); EVSETargetReactivePower_L3, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1); EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMaximumDischargePower, RationalNumberType (1, 1); EVSEMaximumDischargePower_L2, RationalNumberType (0, 1); EVSEMaximumDischargePower_L3, RationalNumberType (0, 1); DSOMaximumDischargePower, RationalNumberType (0, 1); DSOMaximumDischargePower_L2, RationalNumberType (0, 1); DSOMaximumDischargePower_L3, RationalNumberType (0, 1); DSOQSetpoint, DSOQSetpointType (0, 1); DSOCosPhiSetpoint, DSOCosPhiSetpointType (0, 1);
+struct iso20_ac_DER_Scheduled_AC_CLResControlModeType {
+    // EVSETargetActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower;
+    unsigned int EVSETargetActivePower_isUsed:1;
+    // EVSETargetActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower_L2;
+    unsigned int EVSETargetActivePower_L2_isUsed:1;
+    // EVSETargetActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetActivePower_L3;
+    unsigned int EVSETargetActivePower_L3_isUsed:1;
+    // EVSETargetReactivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower;
+    unsigned int EVSETargetReactivePower_isUsed:1;
+    // EVSETargetReactivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower_L2;
+    unsigned int EVSETargetReactivePower_L2_isUsed:1;
+    // EVSETargetReactivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSETargetReactivePower_L3;
+    unsigned int EVSETargetReactivePower_L3_isUsed:1;
+    // EVSEPresentActivePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower;
+    unsigned int EVSEPresentActivePower_isUsed:1;
+    // EVSEPresentActivePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L2;
+    unsigned int EVSEPresentActivePower_L2_isUsed:1;
+    // EVSEPresentActivePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L3;
+    unsigned int EVSEPresentActivePower_L3_isUsed:1;
+    // EVSEMaximumChargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower;
+    // EVSEMaximumChargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L2;
+    unsigned int EVSEMaximumChargePower_L2_isUsed:1;
+    // EVSEMaximumChargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L3;
+    unsigned int EVSEMaximumChargePower_L3_isUsed:1;
+    // EVSEMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower;
+    // EVSEMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L2;
+    unsigned int EVSEMaximumDischargePower_L2_isUsed:1;
+    // EVSEMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L3;
+    unsigned int EVSEMaximumDischargePower_L3_isUsed:1;
+    // DSOMaximumDischargePower, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower;
+    unsigned int DSOMaximumDischargePower_isUsed:1;
+    // DSOMaximumDischargePower_L2, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower_L2;
+    unsigned int DSOMaximumDischargePower_L2_isUsed:1;
+    // DSOMaximumDischargePower_L3, RationalNumberType
+    struct iso20_ac_RationalNumberType DSOMaximumDischargePower_L3;
+    unsigned int DSOMaximumDischargePower_L3_isUsed:1;
+    // DSOQSetpoint, DSOQSetpointType
+    struct iso20_ac_DSOQSetpointType DSOQSetpoint;
+    unsigned int DSOQSetpoint_isUsed:1;
+    // DSOCosPhiSetpoint, DSOCosPhiSetpointType
+    struct iso20_ac_DSOCosPhiSetpointType DSOCosPhiSetpoint;
+    unsigned int DSOCosPhiSetpoint_isUsed:1;
+
+};
+
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}Dynamic_AC_CLResControlMode; type={urn:iso:std:iso:15118:-20:AC}Dynamic_AC_CLResControlModeType; base type=Dynamic_CLResControlModeType; content type=ELEMENT-ONLY;
 //          abstract=False; final=False; derivation=extension;
 // Particle: DepartureTime, unsignedInt (0, 1); MinimumSOC, percentValueType (0, 1); TargetSOC, percentValueType (0, 1); AckMaxDelay, unsignedShort (0, 1); EVSETargetActivePower, RationalNumberType (1, 1); EVSETargetActivePower_L2, RationalNumberType (0, 1); EVSETargetActivePower_L3, RationalNumberType (0, 1); EVSETargetReactivePower, RationalNumberType (0, 1); EVSETargetReactivePower_L2, RationalNumberType (0, 1); EVSETargetReactivePower_L3, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1);
@@ -1119,48 +2028,9 @@ struct iso20_ac_CLResControlModeType {
     int _unused;
 };
 
-// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDReqEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDReqEnergyTransferModeType; base type=AC_CPDReqEnergyTransferModeType; content type=ELEMENT-ONLY;
-//          abstract=False; final=False; derivation=extension;
-// Particle: EVMaximumChargePower, RationalNumberType (1, 1); EVMaximumChargePower_L2, RationalNumberType (0, 1); EVMaximumChargePower_L3, RationalNumberType (0, 1); EVMinimumChargePower, RationalNumberType (1, 1); EVMinimumChargePower_L2, RationalNumberType (0, 1); EVMinimumChargePower_L3, RationalNumberType (0, 1); EVMaximumDischargePower, RationalNumberType (1, 1); EVMaximumDischargePower_L2, RationalNumberType (0, 1); EVMaximumDischargePower_L3, RationalNumberType (0, 1); EVMinimumDischargePower, RationalNumberType (1, 1); EVMinimumDischargePower_L2, RationalNumberType (0, 1); EVMinimumDischargePower_L3, RationalNumberType (0, 1);
-struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType {
-    // EVMaximumChargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumChargePower;
-    // EVMaximumChargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumChargePower_L2;
-    unsigned int EVMaximumChargePower_L2_isUsed:1;
-    // EVMaximumChargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumChargePower_L3;
-    unsigned int EVMaximumChargePower_L3_isUsed:1;
-    // EVMinimumChargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumChargePower;
-    // EVMinimumChargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumChargePower_L2;
-    unsigned int EVMinimumChargePower_L2_isUsed:1;
-    // EVMinimumChargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumChargePower_L3;
-    unsigned int EVMinimumChargePower_L3_isUsed:1;
-    // EVMaximumDischargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumDischargePower;
-    // EVMaximumDischargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L2;
-    unsigned int EVMaximumDischargePower_L2_isUsed:1;
-    // EVMaximumDischargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMaximumDischargePower_L3;
-    unsigned int EVMaximumDischargePower_L3_isUsed:1;
-    // EVMinimumDischargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumDischargePower;
-    // EVMinimumDischargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L2;
-    unsigned int EVMinimumDischargePower_L2_isUsed:1;
-    // EVMinimumDischargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVMinimumDischargePower_L3;
-    unsigned int EVMinimumDischargePower_L3_isUsed:1;
-
-};
-
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}AC_ChargeParameterDiscoveryReq; type={urn:iso:std:iso:15118:-20:AC}AC_ChargeParameterDiscoveryReqType; base type=ChargeParameterDiscoveryReqType; content type=ELEMENT-ONLY;
 //          abstract=False; final=False; derivation=extension;
-// Particle: Header, MessageHeaderType (1, 1); AC_CPDReqEnergyTransferMode, AC_CPDReqEnergyTransferModeType (0, 1); BPT_AC_CPDReqEnergyTransferMode, BPT_AC_CPDReqEnergyTransferModeType (0, 1);
+// Particle: Header, MessageHeaderType (1, 1); AC_CPDReqEnergyTransferMode, AC_CPDReqEnergyTransferModeType (0, 1); BPT_AC_CPDReqEnergyTransferMode, BPT_AC_CPDReqEnergyTransferModeType (0, 1); DER_AC_CPDReqEnergyTransferMode, DER_AC_CPDReqEnergyTransferModeType (0, 1);
 struct iso20_ac_AC_ChargeParameterDiscoveryReqType {
     // Header, MessageHeaderType
     struct iso20_ac_MessageHeaderType Header;
@@ -1170,68 +2040,15 @@ struct iso20_ac_AC_ChargeParameterDiscoveryReqType {
     // BPT_AC_CPDReqEnergyTransferMode, BPT_AC_CPDReqEnergyTransferModeType (base: AC_CPDReqEnergyTransferModeType)
     struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType BPT_AC_CPDReqEnergyTransferMode;
     unsigned int BPT_AC_CPDReqEnergyTransferMode_isUsed:1;
-
-};
-
-// Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDResEnergyTransferMode; type={urn:iso:std:iso:15118:-20:AC}BPT_AC_CPDResEnergyTransferModeType; base type=AC_CPDResEnergyTransferModeType; content type=ELEMENT-ONLY;
-//          abstract=False; final=False; derivation=extension;
-// Particle: EVSEMaximumChargePower, RationalNumberType (1, 1); EVSEMaximumChargePower_L2, RationalNumberType (0, 1); EVSEMaximumChargePower_L3, RationalNumberType (0, 1); EVSEMinimumChargePower, RationalNumberType (1, 1); EVSEMinimumChargePower_L2, RationalNumberType (0, 1); EVSEMinimumChargePower_L3, RationalNumberType (0, 1); EVSENominalFrequency, RationalNumberType (1, 1); MaximumPowerAsymmetry, RationalNumberType (0, 1); EVSEPowerRampLimitation, RationalNumberType (0, 1); EVSEPresentActivePower, RationalNumberType (0, 1); EVSEPresentActivePower_L2, RationalNumberType (0, 1); EVSEPresentActivePower_L3, RationalNumberType (0, 1); EVSEMaximumDischargePower, RationalNumberType (1, 1); EVSEMaximumDischargePower_L2, RationalNumberType (0, 1); EVSEMaximumDischargePower_L3, RationalNumberType (0, 1); EVSEMinimumDischargePower, RationalNumberType (1, 1); EVSEMinimumDischargePower_L2, RationalNumberType (0, 1); EVSEMinimumDischargePower_L3, RationalNumberType (0, 1);
-struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType {
-    // EVSEMaximumChargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumChargePower;
-    // EVSEMaximumChargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L2;
-    unsigned int EVSEMaximumChargePower_L2_isUsed:1;
-    // EVSEMaximumChargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumChargePower_L3;
-    unsigned int EVSEMaximumChargePower_L3_isUsed:1;
-    // EVSEMinimumChargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumChargePower;
-    // EVSEMinimumChargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L2;
-    unsigned int EVSEMinimumChargePower_L2_isUsed:1;
-    // EVSEMinimumChargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumChargePower_L3;
-    unsigned int EVSEMinimumChargePower_L3_isUsed:1;
-    // EVSENominalFrequency, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSENominalFrequency;
-    // MaximumPowerAsymmetry, RationalNumberType
-    struct iso20_ac_RationalNumberType MaximumPowerAsymmetry;
-    unsigned int MaximumPowerAsymmetry_isUsed:1;
-    // EVSEPowerRampLimitation, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEPowerRampLimitation;
-    unsigned int EVSEPowerRampLimitation_isUsed:1;
-    // EVSEPresentActivePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEPresentActivePower;
-    unsigned int EVSEPresentActivePower_isUsed:1;
-    // EVSEPresentActivePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L2;
-    unsigned int EVSEPresentActivePower_L2_isUsed:1;
-    // EVSEPresentActivePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEPresentActivePower_L3;
-    unsigned int EVSEPresentActivePower_L3_isUsed:1;
-    // EVSEMaximumDischargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower;
-    // EVSEMaximumDischargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L2;
-    unsigned int EVSEMaximumDischargePower_L2_isUsed:1;
-    // EVSEMaximumDischargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMaximumDischargePower_L3;
-    unsigned int EVSEMaximumDischargePower_L3_isUsed:1;
-    // EVSEMinimumDischargePower, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower;
-    // EVSEMinimumDischargePower_L2, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower_L2;
-    unsigned int EVSEMinimumDischargePower_L2_isUsed:1;
-    // EVSEMinimumDischargePower_L3, RationalNumberType
-    struct iso20_ac_RationalNumberType EVSEMinimumDischargePower_L3;
-    unsigned int EVSEMinimumDischargePower_L3_isUsed:1;
+    // DER_AC_CPDReqEnergyTransferMode, DER_AC_CPDReqEnergyTransferModeType (base: AC_CPDReqEnergyTransferModeType)
+    struct iso20_ac_DER_AC_CPDReqEnergyTransferModeType DER_AC_CPDReqEnergyTransferMode;
+    unsigned int DER_AC_CPDReqEnergyTransferMode_isUsed:1;
 
 };
 
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}AC_ChargeParameterDiscoveryRes; type={urn:iso:std:iso:15118:-20:AC}AC_ChargeParameterDiscoveryResType; base type=ChargeParameterDiscoveryResType; content type=ELEMENT-ONLY;
 //          abstract=False; final=False; derivation=extension;
-// Particle: Header, MessageHeaderType (1, 1); ResponseCode, responseCodeType (1, 1); AC_CPDResEnergyTransferMode, AC_CPDResEnergyTransferModeType (0, 1); BPT_AC_CPDResEnergyTransferMode, BPT_AC_CPDResEnergyTransferModeType (0, 1);
+// Particle: Header, MessageHeaderType (1, 1); ResponseCode, responseCodeType (1, 1); AC_CPDResEnergyTransferMode, AC_CPDResEnergyTransferModeType (0, 1); BPT_AC_CPDResEnergyTransferMode, BPT_AC_CPDResEnergyTransferModeType (0, 1); DER_AC_CPDResEnergyTransferMode, DER_AC_CPDResEnergyTransferModeType (0, 1);
 struct iso20_ac_AC_ChargeParameterDiscoveryResType {
     // Header, MessageHeaderType
     struct iso20_ac_MessageHeaderType Header;
@@ -1243,6 +2060,9 @@ struct iso20_ac_AC_ChargeParameterDiscoveryResType {
     // BPT_AC_CPDResEnergyTransferMode, BPT_AC_CPDResEnergyTransferModeType (base: AC_CPDResEnergyTransferModeType)
     struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType BPT_AC_CPDResEnergyTransferMode;
     unsigned int BPT_AC_CPDResEnergyTransferMode_isUsed:1;
+    // DER_AC_CPDResEnergyTransferMode, DER_AC_CPDResEnergyTransferModeType (base: AC_CPDResEnergyTransferModeType)
+    struct iso20_ac_DER_AC_CPDResEnergyTransferModeType DER_AC_CPDResEnergyTransferMode;
+    unsigned int DER_AC_CPDResEnergyTransferMode_isUsed:1;
 
 };
 
@@ -1421,7 +2241,7 @@ struct iso20_ac_BPT_Dynamic_AC_CLReqControlModeType {
 
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}AC_ChargeLoopReq; type={urn:iso:std:iso:15118:-20:AC}AC_ChargeLoopReqType; base type=ChargeLoopReqType; content type=ELEMENT-ONLY;
 //          abstract=False; final=False; derivation=extension;
-// Particle: Header, MessageHeaderType (1, 1); DisplayParameters, DisplayParametersType (0, 1); MeterInfoRequested, boolean (1, 1); BPT_Dynamic_AC_CLReqControlMode, BPT_Dynamic_AC_CLReqControlModeType (0, 1); BPT_Scheduled_AC_CLReqControlMode, BPT_Scheduled_AC_CLReqControlModeType (0, 1); CLReqControlMode, CLReqControlModeType (0, 1); Dynamic_AC_CLReqControlMode, Dynamic_AC_CLReqControlModeType (0, 1); Scheduled_AC_CLReqControlMode, Scheduled_AC_CLReqControlModeType (0, 1);
+// Particle: Header, MessageHeaderType (1, 1); DisplayParameters, DisplayParametersType (0, 1); MeterInfoRequested, boolean (1, 1); BPT_Dynamic_AC_CLReqControlMode, BPT_Dynamic_AC_CLReqControlModeType (0, 1); BPT_Scheduled_AC_CLReqControlMode, BPT_Scheduled_AC_CLReqControlModeType (0, 1); CLReqControlMode, CLReqControlModeType (0, 1); DER_Dynamic_AC_CLReqControlMode, DER_Dynamic_AC_CLReqControlModeType (0, 1); DER_Scheduled_AC_CLReqControlMode, DER_Scheduled_AC_CLReqControlModeType (0, 1); Dynamic_AC_CLReqControlMode, Dynamic_AC_CLReqControlModeType (0, 1); Scheduled_AC_CLReqControlMode, Scheduled_AC_CLReqControlModeType (0, 1);
 struct iso20_ac_AC_ChargeLoopReqType {
     // Header, MessageHeaderType
     struct iso20_ac_MessageHeaderType Header;
@@ -1439,6 +2259,12 @@ struct iso20_ac_AC_ChargeLoopReqType {
     // CLReqControlMode, CLReqControlModeType
     struct iso20_ac_CLReqControlModeType CLReqControlMode;
     unsigned int CLReqControlMode_isUsed:1;
+    // DER_Dynamic_AC_CLReqControlMode, DER_Dynamic_AC_CLReqControlModeType (base: Dynamic_AC_CLReqControlModeType)
+    struct iso20_ac_DER_Dynamic_AC_CLReqControlModeType DER_Dynamic_AC_CLReqControlMode;
+    unsigned int DER_Dynamic_AC_CLReqControlMode_isUsed:1;
+    // DER_Scheduled_AC_CLReqControlMode, DER_Scheduled_AC_CLReqControlModeType (base: Scheduled_AC_CLReqControlModeType)
+    struct iso20_ac_DER_Scheduled_AC_CLReqControlModeType DER_Scheduled_AC_CLReqControlMode;
+    unsigned int DER_Scheduled_AC_CLReqControlMode_isUsed:1;
     // Dynamic_AC_CLReqControlMode, Dynamic_AC_CLReqControlModeType (base: Dynamic_CLReqControlModeType)
     struct iso20_ac_Dynamic_AC_CLReqControlModeType Dynamic_AC_CLReqControlMode;
     unsigned int Dynamic_AC_CLReqControlMode_isUsed:1;
@@ -1495,7 +2321,7 @@ struct iso20_ac_BPT_Dynamic_AC_CLResControlModeType {
 
 // Element: definition=complex; name={urn:iso:std:iso:15118:-20:AC}AC_ChargeLoopRes; type={urn:iso:std:iso:15118:-20:AC}AC_ChargeLoopResType; base type=ChargeLoopResType; content type=ELEMENT-ONLY;
 //          abstract=False; final=False; derivation=extension;
-// Particle: Header, MessageHeaderType (1, 1); ResponseCode, responseCodeType (1, 1); EVSEStatus, EVSEStatusType (0, 1); MeterInfo, MeterInfoType (0, 1); Receipt, ReceiptType (0, 1); EVSETargetFrequency, RationalNumberType (0, 1); BPT_Dynamic_AC_CLResControlMode, BPT_Dynamic_AC_CLResControlModeType (0, 1); BPT_Scheduled_AC_CLResControlMode, BPT_Scheduled_AC_CLResControlModeType (0, 1); CLResControlMode, CLResControlModeType (0, 1); Dynamic_AC_CLResControlMode, Dynamic_AC_CLResControlModeType (0, 1); Scheduled_AC_CLResControlMode, Scheduled_AC_CLResControlModeType (0, 1);
+// Particle: Header, MessageHeaderType (1, 1); ResponseCode, responseCodeType (1, 1); EVSEStatus, EVSEStatusType (0, 1); MeterInfo, MeterInfoType (0, 1); Receipt, ReceiptType (0, 1); EVSETargetFrequency, RationalNumberType (0, 1); BPT_Dynamic_AC_CLResControlMode, BPT_Dynamic_AC_CLResControlModeType (0, 1); BPT_Scheduled_AC_CLResControlMode, BPT_Scheduled_AC_CLResControlModeType (0, 1); CLResControlMode, CLResControlModeType (0, 1); DER_Dynamic_AC_CLResControlMode, DER_Dynamic_AC_CLResControlModeType (0, 1); DER_Scheduled_AC_CLResControlMode, DER_Scheduled_AC_CLResControlModeType (0, 1); Dynamic_AC_CLResControlMode, Dynamic_AC_CLResControlModeType (0, 1); Scheduled_AC_CLResControlMode, Scheduled_AC_CLResControlModeType (0, 1);
 struct iso20_ac_AC_ChargeLoopResType {
     // Header, MessageHeaderType
     struct iso20_ac_MessageHeaderType Header;
@@ -1522,6 +2348,12 @@ struct iso20_ac_AC_ChargeLoopResType {
     // CLResControlMode, CLResControlModeType
     struct iso20_ac_CLResControlModeType CLResControlMode;
     unsigned int CLResControlMode_isUsed:1;
+    // DER_Dynamic_AC_CLResControlMode, DER_Dynamic_AC_CLResControlModeType (base: Dynamic_AC_CLResControlModeType)
+    struct iso20_ac_DER_Dynamic_AC_CLResControlModeType DER_Dynamic_AC_CLResControlMode;
+    unsigned int DER_Dynamic_AC_CLResControlMode_isUsed:1;
+    // DER_Scheduled_AC_CLResControlMode, DER_Scheduled_AC_CLResControlModeType (base: Scheduled_AC_CLResControlModeType)
+    struct iso20_ac_DER_Scheduled_AC_CLResControlModeType DER_Scheduled_AC_CLResControlMode;
+    unsigned int DER_Scheduled_AC_CLResControlMode_isUsed:1;
     // Dynamic_AC_CLResControlMode, Dynamic_AC_CLResControlModeType (base: Dynamic_CLResControlModeType)
     struct iso20_ac_Dynamic_AC_CLResControlModeType Dynamic_AC_CLResControlMode;
     unsigned int Dynamic_AC_CLResControlMode_isUsed:1;
@@ -1576,7 +2408,9 @@ struct iso20_ac_exiDocument {
         struct iso20_ac_AC_CPDResEnergyTransferModeType AC_CPDResEnergyTransferMode;
         struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType BPT_AC_CPDReqEnergyTransferMode;
         struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType BPT_AC_CPDResEnergyTransferMode;
+        struct iso20_ac_CLReqControlModeType CLReqControlMode;
         struct iso20_ac_Scheduled_AC_CLReqControlModeType Scheduled_AC_CLReqControlMode;
+        struct iso20_ac_CLResControlModeType CLResControlMode;
         struct iso20_ac_Scheduled_AC_CLResControlModeType Scheduled_AC_CLResControlMode;
         struct iso20_ac_BPT_Scheduled_AC_CLReqControlModeType BPT_Scheduled_AC_CLReqControlMode;
         struct iso20_ac_BPT_Scheduled_AC_CLResControlModeType BPT_Scheduled_AC_CLResControlMode;
@@ -1584,8 +2418,12 @@ struct iso20_ac_exiDocument {
         struct iso20_ac_Dynamic_AC_CLResControlModeType Dynamic_AC_CLResControlMode;
         struct iso20_ac_BPT_Dynamic_AC_CLReqControlModeType BPT_Dynamic_AC_CLReqControlMode;
         struct iso20_ac_BPT_Dynamic_AC_CLResControlModeType BPT_Dynamic_AC_CLResControlMode;
-        struct iso20_ac_CLReqControlModeType CLReqControlMode;
-        struct iso20_ac_CLResControlModeType CLResControlMode;
+        struct iso20_ac_DER_AC_CPDReqEnergyTransferModeType DER_AC_CPDReqEnergyTransferMode;
+        struct iso20_ac_DER_AC_CPDResEnergyTransferModeType DER_AC_CPDResEnergyTransferMode;
+        struct iso20_ac_DER_Dynamic_AC_CLReqControlModeType DER_Dynamic_AC_CLReqControlMode;
+        struct iso20_ac_DER_Dynamic_AC_CLResControlModeType DER_Dynamic_AC_CLResControlMode;
+        struct iso20_ac_DER_Scheduled_AC_CLReqControlModeType DER_Scheduled_AC_CLReqControlMode;
+        struct iso20_ac_DER_Scheduled_AC_CLResControlModeType DER_Scheduled_AC_CLResControlMode;
         struct iso20_ac_SignatureType Signature;
         struct iso20_ac_SignatureValueType SignatureValue;
         struct iso20_ac_SignedInfoType SignedInfo;
@@ -1616,7 +2454,9 @@ struct iso20_ac_exiDocument {
     unsigned int AC_CPDResEnergyTransferMode_isUsed:1;
     unsigned int BPT_AC_CPDReqEnergyTransferMode_isUsed:1;
     unsigned int BPT_AC_CPDResEnergyTransferMode_isUsed:1;
+    unsigned int CLReqControlMode_isUsed:1;
     unsigned int Scheduled_AC_CLReqControlMode_isUsed:1;
+    unsigned int CLResControlMode_isUsed:1;
     unsigned int Scheduled_AC_CLResControlMode_isUsed:1;
     unsigned int BPT_Scheduled_AC_CLReqControlMode_isUsed:1;
     unsigned int BPT_Scheduled_AC_CLResControlMode_isUsed:1;
@@ -1624,8 +2464,12 @@ struct iso20_ac_exiDocument {
     unsigned int Dynamic_AC_CLResControlMode_isUsed:1;
     unsigned int BPT_Dynamic_AC_CLReqControlMode_isUsed:1;
     unsigned int BPT_Dynamic_AC_CLResControlMode_isUsed:1;
-    unsigned int CLReqControlMode_isUsed:1;
-    unsigned int CLResControlMode_isUsed:1;
+    unsigned int DER_AC_CPDReqEnergyTransferMode_isUsed:1;
+    unsigned int DER_AC_CPDResEnergyTransferMode_isUsed:1;
+    unsigned int DER_Dynamic_AC_CLReqControlMode_isUsed:1;
+    unsigned int DER_Dynamic_AC_CLResControlMode_isUsed:1;
+    unsigned int DER_Scheduled_AC_CLReqControlMode_isUsed:1;
+    unsigned int DER_Scheduled_AC_CLResControlMode_isUsed:1;
     unsigned int Signature_isUsed:1;
     unsigned int SignatureValue_isUsed:1;
     unsigned int SignedInfo_isUsed:1;
@@ -1719,7 +2563,9 @@ void init_iso20_ac_AC_CPDReqEnergyTransferModeType(struct iso20_ac_AC_CPDReqEner
 void init_iso20_ac_AC_CPDResEnergyTransferModeType(struct iso20_ac_AC_CPDResEnergyTransferModeType* AC_CPDResEnergyTransferMode);
 void init_iso20_ac_BPT_AC_CPDReqEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType* BPT_AC_CPDReqEnergyTransferMode);
 void init_iso20_ac_BPT_AC_CPDResEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType* BPT_AC_CPDResEnergyTransferMode);
+void init_iso20_ac_CLReqControlModeType(struct iso20_ac_CLReqControlModeType* CLReqControlMode);
 void init_iso20_ac_Scheduled_AC_CLReqControlModeType(struct iso20_ac_Scheduled_AC_CLReqControlModeType* Scheduled_AC_CLReqControlMode);
+void init_iso20_ac_CLResControlModeType(struct iso20_ac_CLResControlModeType* CLResControlMode);
 void init_iso20_ac_Scheduled_AC_CLResControlModeType(struct iso20_ac_Scheduled_AC_CLResControlModeType* Scheduled_AC_CLResControlMode);
 void init_iso20_ac_BPT_Scheduled_AC_CLReqControlModeType(struct iso20_ac_BPT_Scheduled_AC_CLReqControlModeType* BPT_Scheduled_AC_CLReqControlMode);
 void init_iso20_ac_BPT_Scheduled_AC_CLResControlModeType(struct iso20_ac_BPT_Scheduled_AC_CLResControlModeType* BPT_Scheduled_AC_CLResControlMode);
@@ -1727,8 +2573,12 @@ void init_iso20_ac_Dynamic_AC_CLReqControlModeType(struct iso20_ac_Dynamic_AC_CL
 void init_iso20_ac_Dynamic_AC_CLResControlModeType(struct iso20_ac_Dynamic_AC_CLResControlModeType* Dynamic_AC_CLResControlMode);
 void init_iso20_ac_BPT_Dynamic_AC_CLReqControlModeType(struct iso20_ac_BPT_Dynamic_AC_CLReqControlModeType* BPT_Dynamic_AC_CLReqControlMode);
 void init_iso20_ac_BPT_Dynamic_AC_CLResControlModeType(struct iso20_ac_BPT_Dynamic_AC_CLResControlModeType* BPT_Dynamic_AC_CLResControlMode);
-void init_iso20_ac_CLReqControlModeType(struct iso20_ac_CLReqControlModeType* CLReqControlMode);
-void init_iso20_ac_CLResControlModeType(struct iso20_ac_CLResControlModeType* CLResControlMode);
+void init_iso20_ac_DER_AC_CPDReqEnergyTransferModeType(struct iso20_ac_DER_AC_CPDReqEnergyTransferModeType* DER_AC_CPDReqEnergyTransferMode);
+void init_iso20_ac_DER_AC_CPDResEnergyTransferModeType(struct iso20_ac_DER_AC_CPDResEnergyTransferModeType* DER_AC_CPDResEnergyTransferMode);
+void init_iso20_ac_DER_Dynamic_AC_CLReqControlModeType(struct iso20_ac_DER_Dynamic_AC_CLReqControlModeType* DER_Dynamic_AC_CLReqControlMode);
+void init_iso20_ac_DER_Dynamic_AC_CLResControlModeType(struct iso20_ac_DER_Dynamic_AC_CLResControlModeType* DER_Dynamic_AC_CLResControlMode);
+void init_iso20_ac_DER_Scheduled_AC_CLReqControlModeType(struct iso20_ac_DER_Scheduled_AC_CLReqControlModeType* DER_Scheduled_AC_CLReqControlMode);
+void init_iso20_ac_DER_Scheduled_AC_CLResControlModeType(struct iso20_ac_DER_Scheduled_AC_CLResControlModeType* DER_Scheduled_AC_CLResControlMode);
 void init_iso20_ac_SignatureType(struct iso20_ac_SignatureType* Signature);
 void init_iso20_ac_SignatureValueType(struct iso20_ac_SignatureValueType* SignatureValue);
 void init_iso20_ac_SignedInfoType(struct iso20_ac_SignedInfoType* SignedInfo);
@@ -1750,10 +2600,24 @@ void init_iso20_ac_SignaturePropertiesType(struct iso20_ac_SignaturePropertiesTy
 void init_iso20_ac_SignaturePropertyType(struct iso20_ac_SignaturePropertyType* SignatureProperty);
 void init_iso20_ac_DSAKeyValueType(struct iso20_ac_DSAKeyValueType* DSAKeyValue);
 void init_iso20_ac_RSAKeyValueType(struct iso20_ac_RSAKeyValueType* RSAKeyValue);
+void init_iso20_ac_SetpointExcitationType(struct iso20_ac_SetpointExcitationType* SetpointExcitationType);
+void init_iso20_ac_DataTupleType(struct iso20_ac_DataTupleType* DataTupleType);
 void init_iso20_ac_X509IssuerSerialType(struct iso20_ac_X509IssuerSerialType* X509IssuerSerialType);
+void init_iso20_ac_CurveDataPointsListType(struct iso20_ac_CurveDataPointsListType* CurveDataPointsListType);
+void init_iso20_ac_DERCurveType(struct iso20_ac_DERCurveType* DERCurveType);
+void init_iso20_ac_FrequencyWattType(struct iso20_ac_FrequencyWattType* FrequencyWattType);
+void init_iso20_ac_VoltWattType(struct iso20_ac_VoltWattType* VoltWattType);
+void init_iso20_ac_FaultRideThroughType(struct iso20_ac_FaultRideThroughType* FaultRideThroughType);
+void init_iso20_ac_ZeroCurrentType(struct iso20_ac_ZeroCurrentType* ZeroCurrentType);
+void init_iso20_ac_ReactivePowerSupportType(struct iso20_ac_ReactivePowerSupportType* ReactivePowerSupportType);
+void init_iso20_ac_ActivePowerSupportType(struct iso20_ac_ActivePowerSupportType* ActivePowerSupportType);
 void init_iso20_ac_RationalNumberType(struct iso20_ac_RationalNumberType* RationalNumberType);
 void init_iso20_ac_DetailedCostType(struct iso20_ac_DetailedCostType* DetailedCostType);
 void init_iso20_ac_DetailedTaxType(struct iso20_ac_DetailedTaxType* DetailedTaxType);
+void init_iso20_ac_EVReactivePowerLimitsType(struct iso20_ac_EVReactivePowerLimitsType* EVReactivePowerLimitsType);
+void init_iso20_ac_DSOQSetpointType(struct iso20_ac_DSOQSetpointType* DSOQSetpointType);
+void init_iso20_ac_DERControlType(struct iso20_ac_DERControlType* DERControlType);
+void init_iso20_ac_DSOCosPhiSetpointType(struct iso20_ac_DSOCosPhiSetpointType* DSOCosPhiSetpointType);
 void init_iso20_ac_MessageHeaderType(struct iso20_ac_MessageHeaderType* MessageHeaderType);
 void init_iso20_ac_DisplayParametersType(struct iso20_ac_DisplayParametersType* DisplayParametersType);
 void init_iso20_ac_EVSEStatusType(struct iso20_ac_EVSEStatusType* EVSEStatusType);
