@@ -32,7 +32,9 @@ void init_iso20_ac_exiDocument(struct iso20_ac_exiDocument* exiDoc) {
     exiDoc->AC_CPDResEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_AC_CPDReqEnergyTransferMode_isUsed = 0u;
     exiDoc->BPT_AC_CPDResEnergyTransferMode_isUsed = 0u;
+    exiDoc->CLReqControlMode_isUsed = 0u;
     exiDoc->Scheduled_AC_CLReqControlMode_isUsed = 0u;
+    exiDoc->CLResControlMode_isUsed = 0u;
     exiDoc->Scheduled_AC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_AC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Scheduled_AC_CLResControlMode_isUsed = 0u;
@@ -40,8 +42,12 @@ void init_iso20_ac_exiDocument(struct iso20_ac_exiDocument* exiDoc) {
     exiDoc->Dynamic_AC_CLResControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_AC_CLReqControlMode_isUsed = 0u;
     exiDoc->BPT_Dynamic_AC_CLResControlMode_isUsed = 0u;
-    exiDoc->CLReqControlMode_isUsed = 0u;
-    exiDoc->CLResControlMode_isUsed = 0u;
+    exiDoc->DER_AC_CPDReqEnergyTransferMode_isUsed = 0u;
+    exiDoc->DER_AC_CPDResEnergyTransferMode_isUsed = 0u;
+    exiDoc->DER_Dynamic_AC_CLReqControlMode_isUsed = 0u;
+    exiDoc->DER_Dynamic_AC_CLResControlMode_isUsed = 0u;
+    exiDoc->DER_Scheduled_AC_CLReqControlMode_isUsed = 0u;
+    exiDoc->DER_Scheduled_AC_CLResControlMode_isUsed = 0u;
     exiDoc->Signature_isUsed = 0u;
     exiDoc->SignatureValue_isUsed = 0u;
     exiDoc->SignedInfo_isUsed = 0u;
@@ -64,9 +70,17 @@ void init_iso20_ac_exiDocument(struct iso20_ac_exiDocument* exiDoc) {
     exiDoc->DSAKeyValue_isUsed = 0u;
     exiDoc->RSAKeyValue_isUsed = 0u;
 }
+void init_iso20_ac_SetpointExcitationType(struct iso20_ac_SetpointExcitationType* SetpointExcitationType) {
+    SetpointExcitationType->Excitation_isUsed = 0u;
+}
+
 void init_iso20_ac_TransformType(struct iso20_ac_TransformType* TransformType) {
     TransformType->ANY_isUsed = 0u;
     TransformType->XPath_isUsed = 0u;
+}
+
+void init_iso20_ac_DataTupleType(struct iso20_ac_DataTupleType* DataTupleType) {
+    (void) DataTupleType;
 }
 
 void init_iso20_ac_TransformsType(struct iso20_ac_TransformsType* TransformsType) {
@@ -94,8 +108,27 @@ void init_iso20_ac_RSAKeyValueType(struct iso20_ac_RSAKeyValueType* RSAKeyValueT
     (void) RSAKeyValueType;
 }
 
+void init_iso20_ac_CurveDataPointsListType(struct iso20_ac_CurveDataPointsListType* CurveDataPointsListType) {
+    CurveDataPointsListType->CurveDataPoint.arrayLen = 0u;
+}
+
 void init_iso20_ac_CanonicalizationMethodType(struct iso20_ac_CanonicalizationMethodType* CanonicalizationMethodType) {
     CanonicalizationMethodType->ANY_isUsed = 0u;
+}
+
+void init_iso20_ac_DERCurveType(struct iso20_ac_DERCurveType* DERCurveType) {
+    DERCurveType->MinCosPhi_isUsed = 0u;
+    DERCurveType->LockValueUnit_isUsed = 0u;
+    DERCurveType->LockInValue_isUsed = 0u;
+    DERCurveType->LockOutValue_isUsed = 0u;
+    DERCurveType->IntentionalDelay_isUsed = 0u;
+}
+
+void init_iso20_ac_FrequencyWattType(struct iso20_ac_FrequencyWattType* FrequencyWattType) {
+    FrequencyWattType->IntentionalDelayFstop_isUsed = 0u;
+    FrequencyWattType->DeactivationTime_isUsed = 0u;
+    FrequencyWattType->IntentionalDelayPowerControl_isUsed = 0u;
+    FrequencyWattType->PowerUpRamp_isUsed = 0u;
 }
 
 void init_iso20_ac_SignatureMethodType(struct iso20_ac_SignatureMethodType* SignatureMethodType) {
@@ -122,6 +155,10 @@ void init_iso20_ac_RetrievalMethodType(struct iso20_ac_RetrievalMethodType* Retr
     RetrievalMethodType->Transforms_isUsed = 0u;
 }
 
+void init_iso20_ac_VoltWattType(struct iso20_ac_VoltWattType* VoltWattType) {
+    VoltWattType->IntentionalDelayPowerControl_isUsed = 0u;
+}
+
 void init_iso20_ac_X509DataType(struct iso20_ac_X509DataType* X509DataType) {
     X509DataType->X509IssuerSerial_isUsed = 0u;
     X509DataType->X509SKI_isUsed = 0u;
@@ -145,6 +182,13 @@ void init_iso20_ac_SignedInfoType(struct iso20_ac_SignedInfoType* SignedInfoType
     SignedInfoType->Id_isUsed = 0u;
 }
 
+void init_iso20_ac_FaultRideThroughType(struct iso20_ac_FaultRideThroughType* FaultRideThroughType) {
+    FaultRideThroughType->VoltageLimitStopFRT_isUsed = 0u;
+    FaultRideThroughType->VoltageRecoveryLimit_isUsed = 0u;
+    FaultRideThroughType->VoltageRideThroughPositiveCurveKFactor_isUsed = 0u;
+    FaultRideThroughType->VoltageRideThroughNegativeCurveKFactor_isUsed = 0u;
+}
+
 void init_iso20_ac_SignatureValueType(struct iso20_ac_SignatureValueType* SignatureValueType) {
     SignatureValueType->Id_isUsed = 0u;
 }
@@ -161,11 +205,30 @@ void init_iso20_ac_KeyInfoType(struct iso20_ac_KeyInfoType* KeyInfoType) {
     KeyInfoType->ANY_isUsed = 0u;
 }
 
+void init_iso20_ac_ZeroCurrentType(struct iso20_ac_ZeroCurrentType* ZeroCurrentType) {
+    ZeroCurrentType->OverVoltageLimit_isUsed = 0u;
+    ZeroCurrentType->UnderVoltageLimit_isUsed = 0u;
+    ZeroCurrentType->OverVoltageRecoveryLimit_isUsed = 0u;
+    ZeroCurrentType->UnderVoltageRecoveryLimit_isUsed = 0u;
+}
+
 void init_iso20_ac_ObjectType(struct iso20_ac_ObjectType* ObjectType) {
     ObjectType->Encoding_isUsed = 0u;
     ObjectType->Id_isUsed = 0u;
     ObjectType->MimeType_isUsed = 0u;
     ObjectType->ANY_isUsed = 0u;
+}
+
+void init_iso20_ac_ReactivePowerSupportType(struct iso20_ac_ReactivePowerSupportType* ReactivePowerSupportType) {
+    ReactivePowerSupportType->VoltVar_isUsed = 0u;
+    ReactivePowerSupportType->WattVar_isUsed = 0u;
+    ReactivePowerSupportType->WattCosPhi_isUsed = 0u;
+}
+
+void init_iso20_ac_ActivePowerSupportType(struct iso20_ac_ActivePowerSupportType* ActivePowerSupportType) {
+    ActivePowerSupportType->UnderFrequencyWatt_isUsed = 0u;
+    ActivePowerSupportType->OverFrequencyWatt_isUsed = 0u;
+    ActivePowerSupportType->VoltWatt_isUsed = 0u;
 }
 
 void init_iso20_ac_RationalNumberType(struct iso20_ac_RationalNumberType* RationalNumberType) {
@@ -184,6 +247,38 @@ void init_iso20_ac_SignatureType(struct iso20_ac_SignatureType* SignatureType) {
 
 void init_iso20_ac_DetailedTaxType(struct iso20_ac_DetailedTaxType* DetailedTaxType) {
     (void) DetailedTaxType;
+}
+
+void init_iso20_ac_EVReactivePowerLimitsType(struct iso20_ac_EVReactivePowerLimitsType* EVReactivePowerLimitsType) {
+    EVReactivePowerLimitsType->EVMaximumChargeReactivePower_L2_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMaximumChargeReactivePower_L3_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumChargeReactivePower_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumChargeReactivePower_L2_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumChargeReactivePower_L3_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMaximumDischargeReactivePower_L2_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMaximumDischargeReactivePower_L3_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumDischargeReactivePower_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumDischargeReactivePower_L2_isUsed = 0u;
+    EVReactivePowerLimitsType->EVMinimumDischargeReactivePower_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_DSOQSetpointType(struct iso20_ac_DSOQSetpointType* DSOQSetpointType) {
+    DSOQSetpointType->DSOQSetpointValue_L2_isUsed = 0u;
+    DSOQSetpointType->DSOQSetpointValue_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_DERControlType(struct iso20_ac_DERControlType* DERControlType) {
+    DERControlType->OvervoltageFaultRideThrough_isUsed = 0u;
+    DERControlType->UndervoltageFaultRideThrough_isUsed = 0u;
+    DERControlType->ZeroCurrent_isUsed = 0u;
+    DERControlType->ReactivePowerSupport_isUsed = 0u;
+    DERControlType->ActivePowerSupport_isUsed = 0u;
+    DERControlType->MaximumLevelDCInjection_isUsed = 0u;
+}
+
+void init_iso20_ac_DSOCosPhiSetpointType(struct iso20_ac_DSOCosPhiSetpointType* DSOCosPhiSetpointType) {
+    DSOCosPhiSetpointType->DSOCosPhiSetpointValue_L2_isUsed = 0u;
+    DSOCosPhiSetpointType->DSOCosPhiSetpointValue_L3_isUsed = 0u;
 }
 
 void init_iso20_ac_MessageHeaderType(struct iso20_ac_MessageHeaderType* MessageHeaderType) {
@@ -215,6 +310,17 @@ void init_iso20_ac_DisplayParametersType(struct iso20_ac_DisplayParametersType* 
     DisplayParametersType->InletHot_isUsed = 0u;
 }
 
+void init_iso20_ac_BPT_AC_CPDReqEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType* BPT_AC_CPDReqEnergyTransferModeType) {
+    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L2_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L3_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L2_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L3_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L2_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L3_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L2_isUsed = 0u;
+    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L3_isUsed = 0u;
+}
+
 void init_iso20_ac_AC_CPDResEnergyTransferModeType(struct iso20_ac_AC_CPDResEnergyTransferModeType* AC_CPDResEnergyTransferModeType) {
     AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
     AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
@@ -229,6 +335,87 @@ void init_iso20_ac_AC_CPDResEnergyTransferModeType(struct iso20_ac_AC_CPDResEner
 
 void init_iso20_ac_EVSEStatusType(struct iso20_ac_EVSEStatusType* EVSEStatusType) {
     (void) EVSEStatusType;
+}
+
+void init_iso20_ac_DER_AC_CPDReqEnergyTransferModeType(struct iso20_ac_DER_AC_CPDReqEnergyTransferModeType* DER_AC_CPDReqEnergyTransferModeType) {
+    DER_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L2_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L3_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L2_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L3_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L2_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L3_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L2_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L3_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVSessionTotalDischargeEnergyAvailable_isUsed = 0u;
+    DER_AC_CPDReqEnergyTransferModeType->EVReactivePowerLimits_isUsed = 0u;
+}
+
+void init_iso20_ac_BPT_AC_CPDResEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType* BPT_AC_CPDResEnergyTransferModeType) {
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L2_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L3_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->MaximumPowerAsymmetry_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEPowerRampLimitation_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L2_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L2_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L3_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumDischargePower_L2_isUsed = 0u;
+    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumDischargePower_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_DER_Scheduled_AC_CLReqControlModeType(struct iso20_ac_DER_Scheduled_AC_CLReqControlModeType* DER_Scheduled_AC_CLReqControlModeType) {
+    DER_Scheduled_AC_CLReqControlModeType->EVTargetEnergyRequest_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumEnergyRequest_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumEnergyRequest_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargePower_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumChargePower_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumChargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumChargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVPresentActivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVPresentActivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVPresentReactivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVPresentReactivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVPresentReactivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumDischargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumDischargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumDischargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMinimumDischargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargeReactivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargeReactivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumChargeReactivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_DER_Dynamic_AC_CLReqControlModeType(struct iso20_ac_DER_Dynamic_AC_CLReqControlModeType* DER_Dynamic_AC_CLReqControlModeType) {
+    DER_Dynamic_AC_CLReqControlModeType->DepartureTime_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumChargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumChargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMinimumChargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMinimumChargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVPresentActivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVPresentActivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVPresentReactivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVPresentReactivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumDischargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumDischargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMinimumDischargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMinimumDischargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumChargeReactivePower_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumChargeReactivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumChargeReactivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumDischargeReactivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMaximumV2XEnergyRequest_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVMinimumV2XEnergyRequest_isUsed = 0u;
+    DER_Dynamic_AC_CLReqControlModeType->EVSessionTotalDischargeEnergyAvailable_isUsed = 0u;
 }
 
 void init_iso20_ac_Dynamic_AC_CLReqControlModeType(struct iso20_ac_Dynamic_AC_CLReqControlModeType* Dynamic_AC_CLReqControlModeType) {
@@ -273,6 +460,24 @@ void init_iso20_ac_MeterInfoType(struct iso20_ac_MeterInfoType* MeterInfoType) {
     MeterInfoType->MeterTimestamp_isUsed = 0u;
 }
 
+void init_iso20_ac_DER_AC_CPDResEnergyTransferModeType(struct iso20_ac_DER_AC_CPDResEnergyTransferModeType* DER_AC_CPDResEnergyTransferModeType) {
+    DER_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L3_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->MaximumPowerAsymmetry_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEPowerRampLimitation_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSENominalChargePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSENominalChargePower_L3_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSENominalDischargePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSENominalDischargePower_L3_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L2_isUsed = 0u;
+    DER_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L3_isUsed = 0u;
+}
+
 void init_iso20_ac_ReceiptType(struct iso20_ac_ReceiptType* ReceiptType) {
     ReceiptType->TaxCosts.arrayLen = 0u;
     ReceiptType->EnergyCosts_isUsed = 0u;
@@ -291,6 +496,51 @@ void init_iso20_ac_Scheduled_AC_CLResControlModeType(struct iso20_ac_Scheduled_A
     Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
     Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
     Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+}
+
+void init_iso20_ac_DER_Dynamic_AC_CLResControlModeType(struct iso20_ac_DER_Dynamic_AC_CLResControlModeType* DER_Dynamic_AC_CLResControlModeType) {
+    DER_Dynamic_AC_CLResControlModeType->DepartureTime_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->MinimumSOC_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->TargetSOC_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->AckMaxDelay_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSETargetActivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSETargetActivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSETargetReactivePower_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSETargetReactivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSETargetReactivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEMaximumDischargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->EVSEMaximumDischargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->DSOMaximumDischargePower_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->DSOMaximumDischargePower_L2_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->DSOMaximumDischargePower_L3_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->DSOQSetpoint_isUsed = 0u;
+    DER_Dynamic_AC_CLResControlModeType->DSOCosPhiSetpoint_isUsed = 0u;
+}
+
+void init_iso20_ac_DER_Scheduled_AC_CLResControlModeType(struct iso20_ac_DER_Scheduled_AC_CLResControlModeType* DER_Scheduled_AC_CLResControlModeType) {
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetActivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetActivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSETargetReactivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEPresentActivePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEMaximumDischargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->EVSEMaximumDischargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->DSOMaximumDischargePower_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->DSOMaximumDischargePower_L2_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->DSOMaximumDischargePower_L3_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->DSOQSetpoint_isUsed = 0u;
+    DER_Scheduled_AC_CLResControlModeType->DSOCosPhiSetpoint_isUsed = 0u;
 }
 
 void init_iso20_ac_Dynamic_AC_CLResControlModeType(struct iso20_ac_Dynamic_AC_CLResControlModeType* Dynamic_AC_CLResControlModeType) {
@@ -315,11 +565,13 @@ void init_iso20_ac_CLResControlModeType(struct iso20_ac_CLResControlModeType* CL
 void init_iso20_ac_AC_ChargeParameterDiscoveryReqType(struct iso20_ac_AC_ChargeParameterDiscoveryReqType* AC_ChargeParameterDiscoveryReqType) {
     AC_ChargeParameterDiscoveryReqType->AC_CPDReqEnergyTransferMode_isUsed = 0u;
     AC_ChargeParameterDiscoveryReqType->BPT_AC_CPDReqEnergyTransferMode_isUsed = 0u;
+    AC_ChargeParameterDiscoveryReqType->DER_AC_CPDReqEnergyTransferMode_isUsed = 0u;
 }
 
 void init_iso20_ac_AC_ChargeParameterDiscoveryResType(struct iso20_ac_AC_ChargeParameterDiscoveryResType* AC_ChargeParameterDiscoveryResType) {
     AC_ChargeParameterDiscoveryResType->AC_CPDResEnergyTransferMode_isUsed = 0u;
     AC_ChargeParameterDiscoveryResType->BPT_AC_CPDResEnergyTransferMode_isUsed = 0u;
+    AC_ChargeParameterDiscoveryResType->DER_AC_CPDResEnergyTransferMode_isUsed = 0u;
 }
 
 void init_iso20_ac_AC_ChargeLoopReqType(struct iso20_ac_AC_ChargeLoopReqType* AC_ChargeLoopReqType) {
@@ -327,6 +579,8 @@ void init_iso20_ac_AC_ChargeLoopReqType(struct iso20_ac_AC_ChargeLoopReqType* AC
     AC_ChargeLoopReqType->BPT_Dynamic_AC_CLReqControlMode_isUsed = 0u;
     AC_ChargeLoopReqType->BPT_Scheduled_AC_CLReqControlMode_isUsed = 0u;
     AC_ChargeLoopReqType->CLReqControlMode_isUsed = 0u;
+    AC_ChargeLoopReqType->DER_Dynamic_AC_CLReqControlMode_isUsed = 0u;
+    AC_ChargeLoopReqType->DER_Scheduled_AC_CLReqControlMode_isUsed = 0u;
     AC_ChargeLoopReqType->Dynamic_AC_CLReqControlMode_isUsed = 0u;
     AC_ChargeLoopReqType->Scheduled_AC_CLReqControlMode_isUsed = 0u;
 }
@@ -339,35 +593,10 @@ void init_iso20_ac_AC_ChargeLoopResType(struct iso20_ac_AC_ChargeLoopResType* AC
     AC_ChargeLoopResType->BPT_Dynamic_AC_CLResControlMode_isUsed = 0u;
     AC_ChargeLoopResType->BPT_Scheduled_AC_CLResControlMode_isUsed = 0u;
     AC_ChargeLoopResType->CLResControlMode_isUsed = 0u;
+    AC_ChargeLoopResType->DER_Dynamic_AC_CLResControlMode_isUsed = 0u;
+    AC_ChargeLoopResType->DER_Scheduled_AC_CLResControlMode_isUsed = 0u;
     AC_ChargeLoopResType->Dynamic_AC_CLResControlMode_isUsed = 0u;
     AC_ChargeLoopResType->Scheduled_AC_CLResControlMode_isUsed = 0u;
-}
-
-void init_iso20_ac_BPT_AC_CPDReqEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDReqEnergyTransferModeType* BPT_AC_CPDReqEnergyTransferModeType) {
-    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L2_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumChargePower_L3_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L2_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumChargePower_L3_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L2_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMaximumDischargePower_L3_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L2_isUsed = 0u;
-    BPT_AC_CPDReqEnergyTransferModeType->EVMinimumDischargePower_L3_isUsed = 0u;
-}
-
-void init_iso20_ac_BPT_AC_CPDResEnergyTransferModeType(struct iso20_ac_BPT_AC_CPDResEnergyTransferModeType* BPT_AC_CPDResEnergyTransferModeType) {
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L2_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumChargePower_L3_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L2_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumChargePower_L3_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->MaximumPowerAsymmetry_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEPowerRampLimitation_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L2_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEPresentActivePower_L3_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L2_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMaximumDischargePower_L3_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumDischargePower_L2_isUsed = 0u;
-    BPT_AC_CPDResEnergyTransferModeType->EVSEMinimumDischargePower_L3_isUsed = 0u;
 }
 
 void init_iso20_ac_BPT_Scheduled_AC_CLReqControlModeType(struct iso20_ac_BPT_Scheduled_AC_CLReqControlModeType* BPT_Scheduled_AC_CLReqControlModeType) {
