@@ -5151,17 +5151,17 @@ static int encode_iso20_ac_ReactivePowerSupportType(exi_bitstream_t* stream, con
         switch (grammar_id)
         {
         case 107:
-            // Grammar: ID=107; read/write bits=2; START (VoltVar), START (WattVar), START (WattCosPhi)
+            // Grammar: ID=107; read/write bits=2; START (VoltVar), START (WattVar), START (WattCosPhi), END Element
             if (ReactivePowerSupportType->VoltVar_isUsed == 1u)
             {
                 error = exi_basetypes_encoder_nbit_uint(stream, 2, 0);
                 if (error == EXI_ERROR__NO_ERROR)
                 {
-                    // Event: START (VoltVar, DERCurveType); next=2
+                    // Event: START (VoltVar, DERCurveType); next=108
                     error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->VoltVar);
                     if (error == EXI_ERROR__NO_ERROR)
                     {
-                        grammar_id = 2;
+                        grammar_id = 108;
                     }
                 }
             }
@@ -5170,8 +5170,60 @@ static int encode_iso20_ac_ReactivePowerSupportType(exi_bitstream_t* stream, con
                 error = exi_basetypes_encoder_nbit_uint(stream, 2, 1);
                 if (error == EXI_ERROR__NO_ERROR)
                 {
-                    // Event: START (WattVar, DERCurveType); next=2
+                    // Event: START (WattVar, DERCurveType); next=109
                     error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattVar);
+                    if (error == EXI_ERROR__NO_ERROR)
+                    {
+                        grammar_id = 109;
+                    }
+                }
+            }
+            else if (ReactivePowerSupportType->WattCosPhi_isUsed == 1u)
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 2, 2);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
+                    // Event: START (WattCosPhi, DERCurveType); next=2
+                    error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattCosPhi);
+                    if (error == EXI_ERROR__NO_ERROR)
+                    {
+                        grammar_id = 2;
+                    }
+                }
+            }
+            else
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 2, 3);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
+                }
+            }
+            break;
+        case 108:
+            // Grammar: ID=108; read/write bits=2; START (WattVar), START (WattCosPhi), END Element
+            if (ReactivePowerSupportType->WattVar_isUsed == 1u)
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 2, 0);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
+                    // Event: START (WattVar, DERCurveType); next=109
+                    error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattVar);
+                    if (error == EXI_ERROR__NO_ERROR)
+                    {
+                        grammar_id = 109;
+                    }
+                }
+            }
+            else if (ReactivePowerSupportType->WattCosPhi_isUsed == 1u)
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 2, 1);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
+                    // Event: START (WattCosPhi, DERCurveType); next=2
+                    error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattCosPhi);
                     if (error == EXI_ERROR__NO_ERROR)
                     {
                         grammar_id = 2;
@@ -5183,12 +5235,35 @@ static int encode_iso20_ac_ReactivePowerSupportType(exi_bitstream_t* stream, con
                 error = exi_basetypes_encoder_nbit_uint(stream, 2, 2);
                 if (error == EXI_ERROR__NO_ERROR)
                 {
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
+                }
+            }
+            break;
+        case 109:
+            // Grammar: ID=109; read/write bits=1; START (WattCosPhi), END Element
+            if (ReactivePowerSupportType->WattCosPhi_isUsed == 1u)
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 1, 0);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
                     // Event: START (WattCosPhi, DERCurveType); next=2
                     error = encode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattCosPhi);
                     if (error == EXI_ERROR__NO_ERROR)
                     {
                         grammar_id = 2;
                     }
+                }
+            }
+            else
+            {
+                error = exi_basetypes_encoder_nbit_uint(stream, 1, 1);
+                if (error == EXI_ERROR__NO_ERROR)
+                {
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
                 }
             }
             break;
@@ -28655,4 +28730,3 @@ int encode_iso20_ac_xmldsigFragment(exi_bitstream_t* stream, struct iso20_ac_xml
 
     return error;
 }
-

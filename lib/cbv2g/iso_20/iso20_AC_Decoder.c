@@ -6281,30 +6281,30 @@ static int decode_iso20_ac_ReactivePowerSupportType(exi_bitstream_t* stream, str
         switch (grammar_id)
         {
         case 107:
-            // Grammar: ID=107; read/write bits=2; START (VoltVar), START (WattVar), START (WattCosPhi)
+            // Grammar: ID=107; read/write bits=2; START (VoltVar), START (WattVar), START (WattCosPhi), END Element
             error = exi_basetypes_decoder_nbit_uint(stream, 2, &eventCode);
             if (error == 0)
             {
                 switch (eventCode)
                 {
                 case 0:
-                    // Event: START (VoltVar, DERCurveType (DERCurveType)); next=2
+                    // Event: START (VoltVar, DERCurveType (DERCurveType)); next=108
                     // decode: element
                     error = decode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->VoltVar);
                     if (error == 0)
                     {
                         ReactivePowerSupportType->VoltVar_isUsed = 1u;
-                        grammar_id = 2;
+                        grammar_id = 108;
                     }
                     break;
                 case 1:
-                    // Event: START (WattVar, DERCurveType (DERCurveType)); next=2
+                    // Event: START (WattVar, DERCurveType (DERCurveType)); next=109
                     // decode: element
                     error = decode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattVar);
                     if (error == 0)
                     {
                         ReactivePowerSupportType->WattVar_isUsed = 1u;
-                        grammar_id = 2;
+                        grammar_id = 109;
                     }
                     break;
                 case 2:
@@ -6316,6 +6316,77 @@ static int decode_iso20_ac_ReactivePowerSupportType(exi_bitstream_t* stream, str
                         ReactivePowerSupportType->WattCosPhi_isUsed = 1u;
                         grammar_id = 2;
                     }
+                    break;
+                case 3:
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
+                    break;
+                default:
+                    error = EXI_ERROR__UNKNOWN_EVENT_CODE;
+                    break;
+                }
+            }
+            break;
+        case 108:
+            // Grammar: ID=108; read/write bits=2; START (WattVar), START (WattCosPhi), END Element
+            error = exi_basetypes_decoder_nbit_uint(stream, 2, &eventCode);
+            if (error == 0)
+            {
+                switch (eventCode)
+                {
+                case 0:
+                    // Event: START (WattVar, DERCurveType (DERCurveType)); next=109
+                    // decode: element
+                    error = decode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattVar);
+                    if (error == 0)
+                    {
+                        ReactivePowerSupportType->WattVar_isUsed = 1u;
+                        grammar_id = 109;
+                    }
+                    break;
+                case 1:
+                    // Event: START (WattCosPhi, DERCurveType (DERCurveType)); next=2
+                    // decode: element
+                    error = decode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattCosPhi);
+                    if (error == 0)
+                    {
+                        ReactivePowerSupportType->WattCosPhi_isUsed = 1u;
+                        grammar_id = 2;
+                    }
+                    break;
+                case 2:
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
+                    break;
+                default:
+                    error = EXI_ERROR__UNKNOWN_EVENT_CODE;
+                    break;
+                }
+            }
+            break;
+        case 109:
+            // Grammar: ID=109; read/write bits=1; START (WattCosPhi), END Element
+            error = exi_basetypes_decoder_nbit_uint(stream, 1, &eventCode);
+            if (error == 0)
+            {
+                switch (eventCode)
+                {
+                case 0:
+                    // Event: START (WattCosPhi, DERCurveType (DERCurveType)); next=2
+                    // decode: element
+                    error = decode_iso20_ac_DERCurveType(stream, &ReactivePowerSupportType->WattCosPhi);
+                    if (error == 0)
+                    {
+                        ReactivePowerSupportType->WattCosPhi_isUsed = 1u;
+                        grammar_id = 2;
+                    }
+                    break;
+                case 1:
+                    // Event: END Element; next=3
+                    done = 1;
+                    grammar_id = 3;
                     break;
                 default:
                     error = EXI_ERROR__UNKNOWN_EVENT_CODE;
@@ -31016,4 +31087,3 @@ int decode_iso20_ac_xmldsigFragment(exi_bitstream_t* stream, struct iso20_ac_xml
 
     return error;
 }
-
